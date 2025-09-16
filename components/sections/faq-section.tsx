@@ -61,51 +61,56 @@ export function FAQSection() {
   ];
 
   return (
-    <section className="px-4 py-16 bg-black">
+    <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 bg-black">
       <div className="mx-auto max-w-4xl">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 bg-gray-800 px-4 py-2 rounded-full mb-8">
-            <span className="text-gray-400 text-sm">❓ FAQs</span>
+        <div className="text-center mb-8 sm:mb-12">
+          <div className="inline-flex items-center gap-2 bg-gray-800 px-3 sm:px-4 py-2 rounded-full mb-6 sm:mb-8">
+            <span className="text-gray-400 text-xs sm:text-sm">❓ FAQs</span>
           </div>
 
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">
             We're here to help
           </h2>
 
-          <p className="text-gray-300 text-lg">
+          <p className="text-gray-300 text-base sm:text-lg">
             FAQs designed to provide the information you need.
           </p>
         </div>
 
-        <Accordion type="single" collapsible className="space-y-4">
+        <Accordion type="single" collapsible className="space-y-3 sm:space-y-4">
           {faqItems.map((item, index) => (
             <AccordionItem
               key={index}
               value={`item-${index}`}
-              className="bg-gray-900/60 rounded-2xl border border-gray-800 px-6"
+              className="bg-gray-900/60 rounded-xl sm:rounded-2xl border border-gray-800 px-4 sm:px-6"
             >
-              <AccordionTrigger className="text-white text-left hover:no-underline py-6">
+              <AccordionTrigger className="text-white text-left hover:no-underline py-4 sm:py-6 text-sm sm:text-base">
                 {item.question}
               </AccordionTrigger>
-              <AccordionContent className="text-gray-300 pb-6">
+              <AccordionContent className="text-gray-300 pb-4 sm:pb-6 text-sm sm:text-base">
                 {item.answer}
               </AccordionContent>
             </AccordionItem>
           ))}
         </Accordion>
 
-        <div className="text-center mt-12">
+        <div className="text-center mt-8 sm:mt-12">
           <Button
             size="lg"
-            className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold text-lg"
+            className="w-full sm:w-auto bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg"
           >
-            All Questions Answered - Let's Get Started! →
+            <span className="hidden sm:inline">
+              All Questions Answered - Let's Get Started! →
+            </span>
+            <span className="sm:hidden">Get Started! →</span>
           </Button>
 
           {/* Trust badges */}
-          <div className="flex justify-center items-center gap-4 mt-6">
+          <div className="flex justify-center items-center gap-4 mt-4 sm:mt-6">
             <div className="flex items-center gap-1">
-              <span className="text-yellow-400">⭐⭐⭐⭐⭐</span>
+              <span className="text-yellow-400 text-sm sm:text-base">
+                ⭐⭐⭐⭐⭐
+              </span>
             </div>
           </div>
         </div>

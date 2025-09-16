@@ -124,3 +124,62 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Custom responsive utilities */
+@layer utilities {
+  .container-responsive {
+    @apply mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-12 sm:py-16 lg:py-20;
+  }
+
+  .text-responsive-xs {
+    @apply text-xs sm:text-sm;
+  }
+
+  .text-responsive-sm {
+    @apply text-sm sm:text-base;
+  }
+
+  .text-responsive-base {
+    @apply text-base sm:text-lg;
+  }
+
+  .text-responsive-lg {
+    @apply text-lg sm:text-xl lg:text-2xl;
+  }
+
+  .text-responsive-xl {
+    @apply text-xl sm:text-2xl lg:text-3xl;
+  }
+
+  .text-responsive-2xl {
+    @apply text-2xl sm:text-3xl lg:text-4xl;
+  }
+
+  .text-responsive-3xl {
+    @apply text-3xl sm:text-4xl lg:text-5xl xl:text-6xl;
+  }
+
+  .button-responsive {
+    @apply w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg;
+  }
+
+  .card-responsive {
+    @apply rounded-xl sm:rounded-2xl p-4 sm:p-6;
+  }
+
+  .grid-responsive-2 {
+    @apply grid gap-4 sm:gap-6 md:grid-cols-2;
+  }
+
+  .grid-responsive-3 {
+    @apply grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3;
+  }
+
+  .grid-responsive-4 {
+    @apply grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
+  }
+}

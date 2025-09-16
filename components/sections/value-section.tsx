@@ -26,22 +26,22 @@ export function ValueSection() {
   ];
 
   return (
-    <section className="px-4 py-16">
+    <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
       <div className="mx-auto max-w-6xl">
-        <h2 className="mb-12 text-center text-3xl font-bold text-foreground md:text-4xl">
+        <h2 className="mb-8 sm:mb-12 text-center text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
           You'll Instantly Receive Access To...
         </h2>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
           {valueItems.map((item, index) => (
             <Card key={index} className="bg-card border-border overflow-hidden">
               <CardContent className="p-0">
                 <img
                   src={`/abstract-geometric-shapes.png?height=200&width=300&query=${item.image}`}
                   alt={item.title}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-32 sm:h-40 lg:h-48 object-cover"
                 />
-                <div className="p-4">
-                  <h3 className="font-semibold text-card-foreground text-center">
+                <div className="p-3 sm:p-4">
+                  <h3 className="font-semibold text-card-foreground text-center text-sm sm:text-base">
                     {item.title}
                   </h3>
                 </div>

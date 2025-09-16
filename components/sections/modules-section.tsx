@@ -51,41 +51,44 @@ export function ModulesSection() {
   ];
 
   return (
-    <section className="px-4 py-16">
+    <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
       <div className="mx-auto max-w-6xl">
-        <h2 className="mb-12 text-center text-3xl font-bold text-white md:text-4xl">
+        <h2 className="mb-8 sm:mb-12 text-center text-2xl sm:text-3xl md:text-4xl font-bold text-white">
           Here's What's Inside
         </h2>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
           {modules.map((item, index) => (
             <Card key={index} className="bg-slate-800 border-slate-700">
-              <CardContent className="p-6">
-                <div className="flex justify-between items-start mb-3">
-                  <h3 className="font-semibold text-white text-sm">
+              <CardContent className="p-4 sm:p-6">
+                <div className="flex justify-between items-start mb-2 sm:mb-3">
+                  <h3 className="font-semibold text-white text-xs sm:text-sm">
                     {item.title}
                   </h3>
-                  <span className="text-orange-500 font-bold text-sm">
+                  <span className="text-orange-500 font-bold text-xs sm:text-sm">
                     {item.value}
                   </span>
                 </div>
-                <p className="text-gray-400 text-sm">{item.description}</p>
+                <p className="text-gray-400 text-xs sm:text-sm">
+                  {item.description}
+                </p>
               </CardContent>
             </Card>
           ))}
         </div>
-        <div className="mt-8 text-center">
-          <p className="text-2xl font-bold text-white mb-2">
+        <div className="mt-6 sm:mt-8 text-center">
+          <p className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-2">
             Total Value:{" "}
             <span className="line-through text-gray-400">$1,353</span>
           </p>
-          <p className="text-3xl font-bold text-orange-500 mb-6">
+          <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-orange-500 mb-4 sm:mb-6">
             Your Price Today: $37
           </p>
           <Button
             size="lg"
-            className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg"
+            className="w-full sm:w-auto bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg"
           >
-            Get Everything Now - $37
+            <span className="hidden sm:inline">Get Everything Now - $37</span>
+            <span className="sm:hidden">Get Now - $37</span>
           </Button>
         </div>
       </div>

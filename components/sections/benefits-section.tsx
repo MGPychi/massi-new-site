@@ -1,29 +1,31 @@
 export const CourseContentComponent = () => {
   return (
-    <div className="bg-black text-white min-h-screen p-8">
+    <div className="bg-black text-white min-h-screen p-4 sm:p-6 lg:p-8">
       {/* Header */}
-      <div className="text-center mb-16">
-        <h1 className="text-5xl font-bold mb-4">What's Included</h1>
-        <p className="text-lg">
+      <div className="text-center mb-12 sm:mb-16">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+          What's Included
+        </h1>
+        <p className="text-base sm:text-lg">
           Here's what you will find{" "}
           <span className="text-orange-400">inside this course...</span>
         </p>
       </div>
 
       {/* Content Sections */}
-      <div className="max-w-6xl mx-auto space-y-20">
+      <div className="max-w-6xl mx-auto space-y-12 sm:space-y-16 lg:space-y-20">
         {/* Section 1: Build the Foundation */}
-        <div className="flex items-center justify-between">
-          <div className="w-1/2 pr-8">
-            <div className="w-80 h-80 bg-gray-800 rounded-lg flex items-center justify-center">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-0">
+          <div className="w-full lg:w-1/2 lg:pr-8 order-2 lg:order-1">
+            <div className="w-full max-w-80 h-60 sm:h-80 mx-auto bg-gray-800 rounded-lg flex items-center justify-center">
               <span className="text-gray-500">Image Placeholder</span>
             </div>
           </div>
-          <div className="w-1/2 pl-8">
-            <h2 className="text-3xl font-bold mb-6">
+          <div className="w-full lg:w-1/2 lg:pl-8 order-1 lg:order-2">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-center lg:text-left">
               Build the Foundation ($197 Value)
             </h2>
-            <ul className="space-y-3 text-lg">
+            <ul className="space-y-2 sm:space-y-3 text-sm sm:text-lg">
               <li>• What is a Digital Product?</li>
               <li>• What Is PLR/MRR? And How to Make Money Reselling Them</li>
               <li>
@@ -41,16 +43,16 @@ export const CourseContentComponent = () => {
 
         {/* Connecting Line */}
         <div className="flex justify-center">
-          <div className="w-px h-16 bg-white"></div>
+          <div className="w-px h-8 sm:h-16 bg-white"></div>
         </div>
 
         {/* Section 2: Grow Fast */}
-        <div className="flex items-center justify-between">
-          <div className="w-1/2 pr-8">
-            <h2 className="text-3xl font-bold mb-6">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-0">
+          <div className="w-full lg:w-1/2 lg:pr-8 order-1">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-center lg:text-left">
               Grow Fast — 0 to 10K Followers ($397 Value)
             </h2>
-            <ul className="space-y-3 text-lg">
+            <ul className="space-y-2 sm:space-y-3 text-sm sm:text-lg">
               <li>• The Most Important Thing in This Phase</li>
               <li>• The Key Foundations For This Phase</li>
               <li>
@@ -66,8 +68,8 @@ export const CourseContentComponent = () => {
               <li>• And More...</li>
             </ul>
           </div>
-          <div className="w-1/2 pl-8">
-            <div className="w-80 h-80 bg-gray-800 rounded-lg flex items-center justify-center">
+          <div className="w-full lg:w-1/2 lg:pl-8 order-2">
+            <div className="w-full max-w-80 h-60 sm:h-80 mx-auto bg-gray-800 rounded-lg flex items-center justify-center">
               <span className="text-gray-500">Image Placeholder</span>
             </div>
           </div>
@@ -75,21 +77,21 @@ export const CourseContentComponent = () => {
 
         {/* Connecting Line */}
         <div className="flex justify-center">
-          <div className="w-px h-16 bg-gray-600"></div>
+          <div className="w-px h-8 sm:h-16 bg-gray-600"></div>
         </div>
 
         {/* Section 3: Sales Machine */}
-        <div className="flex items-center justify-between">
-          <div className="w-1/2 pr-8">
-            <div className="w-80 h-80 bg-gray-800 rounded-lg flex items-center justify-center">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-0">
+          <div className="w-full lg:w-1/2 lg:pr-8 order-2 lg:order-1">
+            <div className="w-full max-w-80 h-60 sm:h-80 mx-auto bg-gray-800 rounded-lg flex items-center justify-center">
               <span className="text-gray-500">Image Placeholder</span>
             </div>
           </div>
-          <div className="w-1/2 pl-8">
-            <h2 className="text-3xl font-bold mb-6">
+          <div className="w-full lg:w-1/2 lg:pl-8 order-1 lg:order-2">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-center lg:text-left">
               Sales Machine (Automate Your Business) ($397 Value)
             </h2>
-            <ul className="space-y-3 text-lg">
+            <ul className="space-y-2 sm:space-y-3 text-sm sm:text-lg">
               <li>• Building an Ecosystem</li>
               <li>• How I Structure Content to Build Revenue</li>
               <li>• 5 Steps You Need to Know</li>

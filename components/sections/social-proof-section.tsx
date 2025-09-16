@@ -4,36 +4,36 @@ import { Star } from "lucide-react";
 
 export function SocialProofSection() {
   return (
-    <section className="px-4 py-16">
+    <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
       <div className="mx-auto max-w-6xl">
-        <div className="grid gap-8 md:grid-cols-2">
+        <div className="grid gap-6 sm:gap-8 md:grid-cols-2">
           {/* Left Testimonial - @facelesswealth.queen */}
-          <Card className="bg-slate-800 border-slate-700 rounded-2xl">
-            <CardContent className="p-6">
-              <div className="mb-4">
-                <h3 className="text-white font-semibold">
+          <Card className="bg-slate-800 border-slate-700 rounded-xl sm:rounded-2xl">
+            <CardContent className="p-4 sm:p-6">
+              <div className="mb-3 sm:mb-4">
+                <h3 className="text-white font-semibold text-sm sm:text-base">
                   @facelesswealth.queen
                 </h3>
-                <p className="text-gray-400 text-sm">
+                <p className="text-gray-400 text-xs sm:text-sm">
                   Junice | Digital Products & Digital Marketing
                 </p>
               </div>
-              <p className="text-gray-300 text-sm mb-4">
+              <p className="text-gray-300 text-xs sm:text-sm mb-3 sm:mb-4">
                 "She started with me just a few days ago, and now she has over
                 120 followers."
               </p>
 
               {/* Message Screenshot */}
-              <div className="bg-white rounded-lg p-4 mb-4">
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 bg-gray-300 rounded-full flex-shrink-0"></div>
+              <div className="bg-white rounded-lg p-3 sm:p-4 mb-3 sm:mb-4">
+                <div className="flex items-start gap-2 sm:gap-3">
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gray-300 rounded-full flex-shrink-0"></div>
                   <div className="flex-1">
-                    <p className="text-gray-800 text-sm">
+                    <p className="text-gray-800 text-xs sm:text-sm">
                       Hello! I just created my faceless account recently and I'm
                       very excited to start this journey, thank you for your
                       support 🙏
                     </p>
-                    <div className="mt-2">
+                    <div className="mt-1 sm:mt-2">
                       <span className="text-red-500">❤️</span>
                     </div>
                   </div>
@@ -43,11 +43,15 @@ export function SocialProofSection() {
           </Card>
 
           {/* Right Testimonial - @_justcallmeangel_ */}
-          <Card className="bg-slate-800 border-slate-700 rounded-2xl">
-            <CardContent className="p-6">
-              <div className="mb-4">
-                <h3 className="text-white font-semibold">@_justcallmeangel_</h3>
-                <p className="text-gray-400 text-sm">digital marketing</p>
+          <Card className="bg-slate-800 border-slate-700 rounded-xl sm:rounded-2xl">
+            <CardContent className="p-4 sm:p-6">
+              <div className="mb-3 sm:mb-4">
+                <h3 className="text-white font-semibold text-sm sm:text-base">
+                  @_justcallmeangel_
+                </h3>
+                <p className="text-gray-400 text-xs sm:text-sm">
+                  digital marketing
+                </p>
               </div>
               <p className="text-gray-300 text-sm mb-4">
                 "Thank you so much for inspiring me to start this journey into

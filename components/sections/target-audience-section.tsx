@@ -1,23 +1,23 @@
 export function TargetAudienceSection() {
   return (
-    <section className="px-4 py-16 bg-black">
+    <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 bg-black">
       <div className="mx-auto max-w-6xl">
-        <div className="text-center mb-4">
-          <span className="inline-block px-3 py-1 text-sm text-orange-500 border border-orange-500/30 rounded-full mb-6">
+        <div className="text-center mb-3 sm:mb-4">
+          <span className="inline-block px-3 py-1 text-xs sm:text-sm text-orange-500 border border-orange-500/30 rounded-full mb-4 sm:mb-6">
             Is This You?
           </span>
         </div>
-        <h2 className="mb-12 text-center text-4xl font-bold text-white md:text-5xl">
+        <h2 className="mb-8 sm:mb-12 text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white">
           This Is Made for <span className="text-orange-500">People</span> Like
           You...
         </h2>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:gap-8 max-w-5xl mx-auto">
-          <div className="space-y-4">
-            <div className="flex items-center gap-4 bg-gray-900/50 p-4 rounded-xl border border-gray-800">
-              <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+        <div className="grid gap-4 sm:gap-6 lg:gap-8 md:grid-cols-2 max-w-5xl mx-auto">
+          <div className="space-y-3 sm:space-y-4">
+            <div className="flex items-center gap-3 sm:gap-4 bg-gray-900/50 p-3 sm:p-4 rounded-lg sm:rounded-xl border border-gray-800">
+              <div className="w-5 h-5 sm:w-6 sm:h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
                 <svg
-                  className="w-4 h-4 text-white"
+                  className="w-3 h-3 sm:w-4 sm:h-4 text-white"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -30,15 +30,15 @@ export function TargetAudienceSection() {
                   />
                 </svg>
               </div>
-              <p className="text-white text-base">
+              <p className="text-white text-sm sm:text-base">
                 You're tired of paying $497 for courses with no results
               </p>
             </div>
 
-            <div className="flex items-center gap-4 bg-gray-900/50 p-4 rounded-xl border border-gray-800">
-              <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+            <div className="flex items-center gap-3 sm:gap-4 bg-gray-900/50 p-3 sm:p-4 rounded-lg sm:rounded-xl border border-gray-800">
+              <div className="w-5 h-5 sm:w-6 sm:h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
                 <svg
-                  className="w-4 h-4 text-white"
+                  className="w-3 h-3 sm:w-4 sm:h-4 text-white"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
