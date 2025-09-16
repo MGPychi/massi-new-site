@@ -1,0 +1,110 @@
+export const CourseContentComponent = () => {
+  return (
+    <div className="bg-black text-white min-h-screen p-8">
+      {/* Header */}
+      <div className="text-center mb-16">
+        <h1 className="text-5xl font-bold mb-4">What's Included</h1>
+        <p className="text-lg">
+          Here's what you will find{" "}
+          <span className="text-orange-400">inside this course...</span>
+        </p>
+      </div>
+
+      {/* Content Sections */}
+      <div className="max-w-6xl mx-auto space-y-20">
+        {/* Section 1: Build the Foundation */}
+        <div className="flex items-center justify-between">
+          <div className="w-1/2 pr-8">
+            <div className="w-80 h-80 bg-gray-800 rounded-lg flex items-center justify-center">
+              <span className="text-gray-500">Image Placeholder</span>
+            </div>
+          </div>
+          <div className="w-1/2 pl-8">
+            <h2 className="text-3xl font-bold mb-6">
+              Build the Foundation ($197 Value)
+            </h2>
+            <ul className="space-y-3 text-lg">
+              <li>• What is a Digital Product?</li>
+              <li>• What Is PLR/MRR? And How to Make Money Reselling Them</li>
+              <li>
+                • Top Niches & Tools to Start Selling Digital Products. NO More
+                confusion
+              </li>
+              <li>
+                • Step-by-step: Create a high-converting store and start driving
+                traffic
+              </li>
+              <li>• And More...</li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Connecting Line */}
+        <div className="flex justify-center">
+          <div className="w-px h-16 bg-white"></div>
+        </div>
+
+        {/* Section 2: Grow Fast */}
+        <div className="flex items-center justify-between">
+          <div className="w-1/2 pr-8">
+            <h2 className="text-3xl font-bold mb-6">
+              Grow Fast — 0 to 10K Followers ($397 Value)
+            </h2>
+            <ul className="space-y-3 text-lg">
+              <li>• The Most Important Thing in This Phase</li>
+              <li>• The Key Foundations For This Phase</li>
+              <li>
+                • Reveal my secrets and The exact pro tips I used to build
+                10,000 followers audience
+              </li>
+              <li>• Training The Algorithm</li>
+              <li>• Structure Your Bio & Highlights for Instagram</li>
+              <li>• When and How Many Times You Should Post</li>
+              <li>• How to find viral content ideas & grow</li>
+              <li>• How to Convert More Viewers Into Followers</li>
+              <li>• Content Type</li>
+              <li>• And More...</li>
+            </ul>
+          </div>
+          <div className="w-1/2 pl-8">
+            <div className="w-80 h-80 bg-gray-800 rounded-lg flex items-center justify-center">
+              <span className="text-gray-500">Image Placeholder</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Connecting Line */}
+        <div className="flex justify-center">
+          <div className="w-px h-16 bg-gray-600"></div>
+        </div>
+
+        {/* Section 3: Sales Machine */}
+        <div className="flex items-center justify-between">
+          <div className="w-1/2 pr-8">
+            <div className="w-80 h-80 bg-gray-800 rounded-lg flex items-center justify-center">
+              <span className="text-gray-500">Image Placeholder</span>
+            </div>
+          </div>
+          <div className="w-1/2 pl-8">
+            <h2 className="text-3xl font-bold mb-6">
+              Sales Machine (Automate Your Business) ($397 Value)
+            </h2>
+            <ul className="space-y-3 text-lg">
+              <li>• Building an Ecosystem</li>
+              <li>• How I Structure Content to Build Revenue</li>
+              <li>• 5 Steps You Need to Know</li>
+              <li>• Setup Your Account</li>
+              <li>• Caption (how to make your caption better)</li>
+              <li>• Part 2: Turn your store into a money printer</li>
+              <li>• Email (Newsletters/Marketing)</li>
+              <li>• Manychat (Automate Your Business)</li>
+              <li>• And More...</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default CourseContentComponent;
