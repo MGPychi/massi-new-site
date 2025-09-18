@@ -20,7 +20,7 @@ import { FooterSection } from "@/components/sections/footer-section";
 
 export default function DigitalProductAcademy() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
+    <div className="min-h-screen bg-gradient-to-b from-black via-slate-900 to-black">
       <HeroSection />
       <SocialProofSection />
       <BlueprintSection />

@@ -98,11 +98,18 @@ export function FAQSection() {
           <Button
             size="lg"
             className="w-full sm:w-auto bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg"
+            asChild
           >
-            <span className="hidden sm:inline">
-              All Questions Answered - Let's Get Started! →
-            </span>
-            <span className="sm:hidden">Get Started! →</span>
+            <a
+              href={process.env.NEXT_PUBLIC_CHECKOUT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className="hidden sm:inline">
+                All Questions Answered - Let's Get Started! →
+              </span>
+              <span className="sm:hidden">Get Started! →</span>
+            </a>
           </Button>
 
           {/* Trust badges */}

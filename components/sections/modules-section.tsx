@@ -51,7 +51,7 @@ export function ModulesSection() {
   ];
 
   return (
-    <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-black to-slate-900">
       <div className="mx-auto max-w-6xl">
         <h2 className="mb-8 sm:mb-12 text-center text-2xl sm:text-3xl md:text-4xl font-bold text-white">
           Here's What's Inside
@@ -83,13 +83,24 @@ export function ModulesSection() {
           <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-orange-500 mb-4 sm:mb-6">
             Your Price Today: $37
           </p>
-          <Button
-            size="lg"
-            className="w-full sm:w-auto bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg"
-          >
-            <span className="hidden sm:inline">Get Everything Now - $37</span>
-            <span className="sm:hidden">Get Now - $37</span>
-          </Button>
+          <div className="text-center mt-8 sm:mt-12">
+            <Button
+              size="lg"
+              className="w-full sm:w-auto bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-10 py-3 sm:py-4 text-base sm:text-lg font-bold rounded-lg transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-orange-500/25"
+              asChild
+            >
+              <a
+                href={process.env.NEXT_PUBLIC_CHECKOUT_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="hidden sm:inline">
+                  Get All Modules + Bonuses Now →
+                </span>
+                <span className="sm:hidden">Get All Modules →</span>
+              </a>
+            </Button>
+          </div>
         </div>
       </div>
     </section>

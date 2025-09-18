@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 
 export function GuaranteeSection() {
   return (
-    <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 bg-black">
+    <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 bg-black">
       <div className="mx-auto max-w-4xl text-center">
         <div className="mb-6 sm:mb-8">
           <div className="inline-flex items-center gap-2 bg-gray-800 px-3 sm:px-4 py-2 rounded-full mb-6 sm:mb-8">
@@ -86,24 +86,31 @@ export function GuaranteeSection() {
           </p>
         </div>
 
-        <div className="mb-6 sm:mb-8">
+        <div className="text-center mt-8 sm:mt-12">
           <Button
             size="lg"
-            className="w-full sm:w-auto bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg"
+            className="w-full sm:w-auto bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-10 py-3 sm:py-4 text-base sm:text-lg font-bold rounded-lg transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-orange-500/25"
+            asChild
           >
-            <span className="hidden sm:inline">
-              Get Instant Access To DPA →
-            </span>
-            <span className="sm:hidden">Get Access →</span>
-          </Button>
-
-          {/* Trust badges */}
-          <div className="flex justify-center items-center gap-4 mt-4 sm:mt-6">
-            <div className="flex items-center gap-1">
-              <span className="text-yellow-400 text-sm sm:text-base">
-                ⭐⭐⭐⭐⭐
+            <a
+              href={process.env.NEXT_PUBLIC_CHECKOUT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className="hidden sm:inline">
+                Claim Your 90-Day Guarantee Now →
               </span>
-            </div>
+              <span className="sm:hidden">Claim Guarantee →</span>
+            </a>
+          </Button>
+        </div>
+
+        {/* Trust badges */}
+        <div className="flex justify-center items-center gap-4 mt-4 sm:mt-6">
+          <div className="flex items-center gap-1">
+            <span className="text-yellow-400 text-sm sm:text-base">
+              ⭐⭐⭐⭐⭐
+            </span>
           </div>
         </div>
 
