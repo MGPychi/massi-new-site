@@ -66,7 +66,7 @@ export function NotForEveryoneSection() {
         </div>
 
         <div className="text-center">
-          <Button className="bg-orange-500  hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold cursor-pointer text-center text-lg">
+          <Button className="bg-orange-500 max-w-screen  hover:bg-orange-600 text-white px:4 md:px-8 py-4 rounded-lg font-semibold cursor-pointer text-center text-xs md:text-lg">
             <a
               href={process.env.NEXT_PUBLIC_CHECKOUT_URL}
               className="inline-block"

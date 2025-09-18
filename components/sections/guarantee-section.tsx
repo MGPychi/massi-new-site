@@ -7,9 +7,7 @@ export function GuaranteeSection() {
     <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 bg-black">
       <div className="mx-auto max-w-4xl text-center">
         <div className="mb-6 sm:mb-8">
-          <div className="inline-flex items-center gap-2 bg-gray-800 px-3 sm:px-4 py-2 rounded-full mb-6 sm:mb-8">
-            <BadgeSection>100$ risk-free</BadgeSection>
-          </div>
+          <BadgeSection>100% risk-free</BadgeSection>
         </div>
 
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-8 sm:mb-12">

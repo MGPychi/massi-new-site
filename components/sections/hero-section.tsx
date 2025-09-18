@@ -45,7 +45,7 @@ function TrustBadge() {
 
 function MainHeadline() {
   return (
-    <h1 className="mb-4 sm:mb-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl font-medium leading-tight text-white text-balance max-w-4xl mx-auto px-2">
+    <h1 className="mb-4 sm:mb-6 text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl font-medium leading-tight text-white max-w-4xl mx-auto px-2">
       How This Simple Digital Product{" "}
       <span className="text-orange-500">Strategy</span> Made Me{" "}
       <span className="text-green-400">$869.66</span> in One Day{" "}
