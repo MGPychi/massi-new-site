@@ -10,6 +10,7 @@ import {
   Palette,
   Mail,
 } from "lucide-react";
+import { BadgeSection } from "../ui/badge-section";
 
 export function PricingSection() {
   const features = [
@@ -64,16 +65,15 @@ export function PricingSection() {
   ];
 
   return (
-    <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-slate-900 to-black">
+    <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 relative">
       <div className="mx-auto max-w-2xl">
         <div className="text-center mb-6 sm:mb-8">
-          <div className="inline-flex items-center gap-2 bg-gray-800 px-3 sm:px-4 py-2 rounded-full mb-6 sm:mb-8">
-            <span className="text-gray-400 text-xs sm:text-sm">💼 Plans</span>
-          </div>
+          <BadgeSection>Badge</BadgeSection>
         </div>
 
         {/* Main Pricing Card */}
-        <div className="relative z-10 bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 border border-orange-500/30 shadow-2xl">
+        <div className="relative z-10 overflow-hidden rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 border border-gray-800 shadow-2xl bg-black/10 backdrop-blur-md">
+          <div className="absolute top-0 left-0 w-32 h-32 bg-blue-800 rounded-full blur-3xl opacity-50"></div>
           <div className="text-center mb-6 sm:mb-8">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">
               $97 lifetime access
@@ -103,7 +103,7 @@ export function PricingSection() {
 
             <Button
               size="lg"
-              className="w-full bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white py-4 sm:py-5 text-base sm:text-lg font-bold rounded-lg transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-orange-500/25"
+              className="w-full bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white py-4 sm:py-5 text-base sm:text-lg font-bold rounded-lg transition-all duration-200  shadow-lg hover:shadow-orange-500/25"
               asChild
             >
               <a

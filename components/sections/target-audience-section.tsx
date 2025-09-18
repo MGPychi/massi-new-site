@@ -47,9 +47,6 @@ export function TargetAudienceSection() {
                 <p className="text-white text-sm sm:text-base">{item}</p>
               </div>
               {/* Blue light effect covering the right side and fading to the left */}
-              <div className="absolute right-0 top-0 h-full w-1/2 pointer-events-none">
-                <div className="h-full w-full bg-gradient-to-l from-blue-500/90 via-blue-400/10 to-transparent" />
-              </div>
             </li>
           ))}
         </ul>

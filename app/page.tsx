@@ -29,7 +29,7 @@ export default function DigitalProductAcademy() {
       <WhatsIncludedSection />
       <WhoShouldEnrollSection />
       <ResultsSection />
-      <SneakPeekSection />
+      {/* <SneakPeekSection /> */}
       <NotForEveryoneSection />
       <PricingSection />
       <NewTestimonialsSection />

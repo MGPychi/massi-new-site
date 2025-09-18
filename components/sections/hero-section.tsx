@@ -12,26 +12,6 @@ import { BadgeSection } from "../ui/badge-section";
 export function HeroSection() {
   return (
     <section className="relative px-4 w-full   sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 text-center bg-gradient-to-b from-black via-slate-900 to-black">
-      {/* Blue light at the top */}
-      <div
-        aria-hidden="true"
-        style={{
-          filter: "blur(60px)",
-          opacity: 0.55,
-          zIndex: 1,
-          flex: "none",
-          width: "1085px",
-          height: "184px",
-          position: "absolute",
-          top: "-101px",
-          left: "-86px",
-          overflow: "hidden",
-          backgroundSize: "100% 100%",
-          backgroundImage:
-            'url(\'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1085 184"><path d="M 77 1 C 77 1 702.761 14.525 822 48.5 C 941.239 82.475 1084 169 1084 169 L 934.5 133.5 L 822 107 L 580.5 96 L 278 133.5 L 102 155.5 L 1 183 L 1 1 Z" fill="rgba(81, 47, 235, 0.55)" stroke="%23AAA"></path></svg>\')',
-        }}
-        className="pointer-events-none"
-      />
       <div className="mx-auto md:max-w-5xl lg:max-w-7xl xl:max-w-8xl">
         {/* Trust Badge */}
         <TrustBadge />

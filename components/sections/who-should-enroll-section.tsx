@@ -1,7 +1,7 @@
 export function WhoShouldEnrollSection() {
   return (
     <section className="px-4 py-16 bg-black">
-      <div className="mx-auto max-w-4xl">
+      <div className="mx-auto max-w-2xl">
         <h2 className="mb-12 text-center text-3xl font-bold text-white md:text-4xl">
           In case we haven't met yet...
         </h2>
@@ -10,7 +10,7 @@ export function WhoShouldEnrollSection() {
           <div className="relative inline-block">
             <div className="w-32 h-32 mx-auto rounded-full bg-orange-100 overflow-hidden mb-6">
               <img
-                src="/placeholder-user.jpg"
+                src="/us-image.avif"
                 alt="Mr. M & Mrs. H"
                 className="w-full h-full object-cover"
               />
@@ -22,12 +22,12 @@ export function WhoShouldEnrollSection() {
         </div>
 
         <div className="space-y-6 text-left max-w-3xl mx-auto">
-          <p className="text-gray-300 leading-relaxed">
+          <p className="text-gray-100 leading-relaxed">
             We used to be video editors, working with clients every day, loving
             the hustle... until we hit a wall.
           </p>
 
-          <p className="text-gray-300 leading-relaxed">
+          <p className="text-gray-300 text-sm font-medium leading-relaxed">
             At first, freelancing felt like freedom. But over time? We realized
             the harsh truth:{" "}
             <strong className="text-white">it doesn't scale.</strong> We were
@@ -62,7 +62,7 @@ export function WhoShouldEnrollSection() {
             </strong>
           </p>
 
-          <p className="text-gray-300 leading-relaxed">
+          <p className="text-gray-300 text-sm leading-relaxed">
             That's when everything changed.
             <br />
             We stopped freelancing and went all in on selling digital products —

@@ -1,43 +1,43 @@
 import { Button } from "@/components/ui/button";
 
-export function ResultsSection() {
-  const results = [
-    {
-      image: "/placeholder.jpg",
-      alt: "Dashboard showing €277.13 revenue",
-    },
-    {
-      image: "/placeholder.jpg",
-      alt: "Sale notification for $112.20",
-    },
-    {
-      image: "/placeholder.jpg",
-      alt: "Sale notification for $97.00",
-    },
-    {
-      image: "/placeholder.jpg",
-      alt: "Dashboard showing $122.50 earnings",
-    },
-    {
-      image: "/placeholder.jpg",
-      alt: "Dashboard showing $78.50 earnings",
-    },
-    {
-      image: "/placeholder.jpg",
-      alt: "Dashboard showing €54.01 revenue",
-    },
-    {
-      image: "/placeholder.jpg",
-      alt: "Revenue analytics dashboard",
-    },
-    {
-      image: "/placeholder.jpg",
-      alt: "Mobile notifications dashboard",
-    },
-  ];
+const results = [
+  {
+    image: "/result1.avif",
+    alt: "Dashboard showing €277.13 revenue",
+  },
+  {
+    image: "/result2.avif",
+    alt: "Sale notification for $112.20",
+  },
+  {
+    image: "/result3.avif",
+    alt: "Sale notification for $97.00",
+  },
+  {
+    image: "/result4.avif",
+    alt: "Dashboard showing $122.50 earnings",
+  },
+  {
+    image: "/result5.avif",
+    alt: "Dashboard showing $78.50 earnings",
+  },
+  {
+    image: "/result6.avif",
+    alt: "Dashboard showing €54.01 revenue",
+  },
+  {
+    image: "/result7.avif",
+    alt: "Revenue analytics dashboard",
+  },
+  {
+    image: "/result8.avif",
+    alt: "Mobile notifications dashboard",
+  },
+];
 
+export function ResultsSection() {
   return (
-    <section className="px-4 py-16 bg-black">
+    <section className="px-4 py-16 bg-black relative">
       <div className="mx-auto max-w-6xl">
         <h2 className="mb-12 text-center text-3xl font-bold text-white md:text-4xl">
           Some of Our Results... And They Can Be Yours Too!
@@ -47,13 +47,14 @@ export function ResultsSection() {
           {results.map((result, index) => (
             <div
               key={index}
-              className="bg-gray-900/50 rounded-2xl p-4 border border-gray-800 hover:border-gray-700 transition-colors"
+              className="bg-transparent rounded-2xl p-4 border relative border-gray-800 hover:border-gray-700 transition-colors"
             >
-              <div className="aspect-video bg-gray-800 rounded-lg overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500 rounded-full blur-3xl opacity-50"></div>
+              <div className="aspect-video bg-transparent rounded-lg  overflow-hidden">
                 <img
                   src={result.image}
                   alt={result.alt}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full rounded-xl object-contain"
                 />
               </div>
             </div>

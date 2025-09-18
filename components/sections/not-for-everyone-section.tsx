@@ -1,30 +1,30 @@
 import { Button } from "@/components/ui/button";
 import { AlertTriangle } from "lucide-react";
 
-export function NotForEveryoneSection() {
-  const notForTypes = [
-    {
-      title: "people looking for a course on paid ads",
-      description:
-        "We focus on organic growth, automation, and faceless content — not ad strategy.",
-    },
-    {
-      title: "people looking for an overnight success",
-      description:
-        "If you're hoping to click a few buttons and magically make $1,000 by tomorrow... this isn't for you.",
-    },
-    {
-      title: "people who are just want to watch videos",
-      description:
-        "This isn't passive entertainment. This is a hands-on program designed for people who are ready to apply and grow.",
-    },
-    {
-      title: "people who want to sell exclusive or adult content.",
-      description:
-        "My training is focused on digital products and ethical marketing — not adult or explicit content.",
-    },
-  ];
+const notForTypes = [
+  {
+    title: "people looking for a course on paid ads",
+    description:
+      "We focus on organic growth, automation, and faceless content — not ad strategy.",
+  },
+  {
+    title: "people looking for an overnight success",
+    description:
+      "If you're hoping to click a few buttons and magically make $1,000 by tomorrow... this isn't for you.",
+  },
+  {
+    title: "people who are just want to watch videos",
+    description:
+      "This isn't passive entertainment. This is a hands-on program designed for people who are ready to apply and grow.",
+  },
+  {
+    title: "people who want to sell exclusive or adult content.",
+    description:
+      "My training is focused on digital products and ethical marketing — not adult or explicit content.",
+  },
+];
 
+export function NotForEveryoneSection() {
   return (
     <section className="px-4 py-16 bg-black">
       <div className="mx-auto max-w-6xl">
@@ -66,26 +66,17 @@ export function NotForEveryoneSection() {
         </div>
 
         <div className="text-center">
-          <Button
-            size="lg"
-            className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold"
-          >
-            I See Myself in This — I'm Ready to Join DPA →
+          <Button className="bg-orange-500  hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold cursor-pointer text-center text-lg">
+            <a
+              href={process.env.NEXT_PUBLIC_CHECKOUT_URL}
+              className="inline-block"
+            >
+              I See Myself in This — I'm Ready to Join DPA →
+            </a>
           </Button>
 
           {/* Trust badges */}
-          <div className="flex justify-center items-center gap-4 mt-6">
-            <div className="flex items-center gap-1">
-              <span className="text-yellow-400">⭐⭐⭐⭐⭐</span>
-            </div>
-          </div>
-
-          {/* Plans badge */}
-          <div className="mt-8">
-            <div className="inline-flex items-center gap-2 bg-gray-800 px-4 py-2 rounded-full">
-              <span className="text-gray-400 text-sm">💼 Plans</span>
-            </div>
-          </div>
+          <div className="flex justify-center items-center gap-4 mt-6"></div>
         </div>
       </div>
     </section>
