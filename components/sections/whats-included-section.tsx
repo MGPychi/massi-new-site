@@ -1,44 +1,44 @@
 export function WhatsIncludedSection() {
   const bonuses = [
     {
-      image: "/placeholder.jpg",
+      image: "/value1.avif",
       title: "One-on-One Support Call",
       value: "$397 Value",
       description: "Personalized guidance to move you forward",
     },
     {
-      image: "/placeholder.jpg",
+      image: "/value2.avif",
       title: "Private Creators Community",
       value: "$497 Value",
       description: "Get feedback, support & accountability",
     },
     {
-      image: "/placeholder.jpg",
+      image: "/value3.avif",
       title: "20+ Low-Competition Niches",
       value: "$97 Value",
       description: "Top 20 niches for digital products Low-Competition",
     },
     {
-      image: "/placeholder.jpg",
+      image: "/value4.avif",
       title: "10 Ready-Made Digital Products (PLR/ MRR)",
       value: "$497 Value",
       description: "Start selling from day one",
     },
     {
-      image: "/placeholder.jpg",
+      image: "/value5.avif",
       title: "Canva Crash Course",
       value: "$97 Value",
       description: "Design like a pro without any prior skills",
     },
     {
-      image: "/placeholder.jpg",
+      image: "/value6.avif",
       title: "Morychat Template",
       value: "$97 Value",
       description:
         "Custom templates to collect emails, send them content and promote your products automatically",
     },
     {
-      image: "/placeholder.jpg",
+      image: "/value7.avif",
       title: "Story Selling Prompt",
       value: "$97 Value",
       description: "Custom prompt how to sell without sounding salesy",
@@ -59,8 +59,12 @@ export function WhatsIncludedSection() {
           {bonuses.map((bonus, index) => (
             <div
               key={index}
-              className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800 hover:border-gray-700 transition-colors"
+              className="relative bg-gray-900/50 rounded-3xl p-6 border border-gray-800 hover:border-gray-700 transition-colors shadow-xl shadow-black/20 overflow-hidden"
             >
+              {/* Blue light effect in top right */}
+              <div className="absolute top-0 right-0 w-20 h-20">
+                {/* <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-blue-400/30 via-blue-400/10 to-transparent rounded-br-3xl" /> */}
+              </div>
               <div className="aspect-video bg-gray-800 rounded-lg mb-4 overflow-hidden">
                 <img
                   src={bonus.image}

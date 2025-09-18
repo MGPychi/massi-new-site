@@ -7,6 +7,7 @@ import {
   CTA_TEXT,
   SECURITY_BADGES,
 } from "@/lib/constants";
+import { BadgeSection } from "../ui/badge-section";
 
 export function HeroSection() {
   return (
@@ -57,9 +58,7 @@ export function HeroSection() {
 function TrustBadge() {
   return (
     <div className="mb-4 sm:mb-6">
-      <Badge className="bg-slate-800/90 text-white !font-500 border border-slate-700/70 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm rounded-md">
-        {BRAND_INFO.TRUST_BADGE_TEXT}
-      </Badge>
+      <BadgeSection>{BRAND_INFO.TRUST_BADGE_TEXT}</BadgeSection>
     </div>
   );
 }
@@ -133,9 +132,9 @@ function CTAButtons() {
     <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4">
       <Button
         size="lg"
-        className="w-full sm:w-auto bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-10 py-3 sm:py-4 text-sm sm:text-lg font-bold rounded-lg transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-orange-500/25"
         aria-label="Start making money with digital products now"
         asChild
+        className="text-sm sm:text-base"
       >
         <a
           href={process.env.NEXT_PUBLIC_CHECKOUT_URL}
