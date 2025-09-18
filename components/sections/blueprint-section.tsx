@@ -43,13 +43,16 @@ export function BlueprintSection() {
           {faqData.map((faq, index) => (
             <div
               key={index}
-              className="bg-gray-900 border border-gray-800 rounded-lg p-6 space-y-4"
+              className="border border-gray-800 rounded-2xl p-4 sm:p-6 space-y-3"
+              style={{ backgroundColor: "#0f0f0f" }}
             >
-              <div className="text-gray-400 text-sm font-medium">
+              <div className="text-white text-base  py-2 font-bold text-center">
                 {faq.question}
               </div>
-              <h3 className="text-white font-semibold text-lg">{faq.title}</h3>
-              <p className="text-gray-300 text-sm leading-relaxed whitespace-pre-line">
+              <h3 className="text-white font-semibold text-base">
+                {faq.title}
+              </h3>
+              <p className="text-gray-300 text-xs leading-relaxed whitespace-pre-line">
                 {faq.content}
               </p>
             </div>
@@ -57,30 +60,15 @@ export function BlueprintSection() {
         </div>
 
         <div className="text-center space-y-4">
+          <h3 className="text-white text-4xl font-bold">
+            ...and so much more!
+          </h3>
           <Button
             size="lg"
             className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg text-lg font-semibold"
           >
-            Try All Clear - Give Me Access Now →
+            Get Access
           </Button>
-
-          <div className="flex items-center justify-center gap-2">
-            <div className="flex -space-x-2">
-              <div className="w-8 h-8 rounded-full bg-gray-600 border-2 border-black"></div>
-              <div className="w-8 h-8 rounded-full bg-gray-600 border-2 border-black"></div>
-              <div className="w-8 h-8 rounded-full bg-gray-600 border-2 border-black"></div>
-            </div>
-            <div className="text-yellow-400 text-sm">★★★★★</div>
-          </div>
-
-          <div className="mt-8">
-            <Button
-              size="lg"
-              className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg text-lg font-semibold"
-            >
-              JOIN DPA
-            </Button>
-          </div>
         </div>
       </div>
     </section>

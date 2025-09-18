@@ -1,7 +1,15 @@
+import Image from "next/image";
+import { BadgeSection } from "../ui/badge-section";
+
 export const CourseContentComponent = () => {
   return (
     <div className="bg-black text-white min-h-screen p-4 sm:p-6 lg:p-8">
       {/* Header */}
+
+      <div className="text-center mb-3 sm:mb-4">
+        <BadgeSection>DPA</BadgeSection>
+      </div>
+
       <div className="text-center mb-12 sm:mb-16">
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
           What's Included
@@ -17,8 +25,15 @@ export const CourseContentComponent = () => {
         {/* Section 1: Build the Foundation */}
         <div className="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-0">
           <div className="w-full lg:w-1/2 lg:pr-8 order-2 lg:order-1">
-            <div className="w-full max-w-80 h-60 sm:h-80 mx-auto bg-gray-800 rounded-lg flex items-center justify-center">
-              <span className="text-gray-500">Image Placeholder</span>
+            <div className="w-full max-w-80 h-60 sm:h-80 mx-auto  rounded-lg flex items-center justify-center">
+              <Image
+                src="/included1.avif"
+                alt="Build the Foundation"
+                width={320}
+                height={240}
+                className="object-contain rounded-lg w-full h-full"
+                priority
+              />
             </div>
           </div>
           <div className="w-full lg:w-1/2 lg:pl-8 order-1 lg:order-2">
@@ -69,8 +84,15 @@ export const CourseContentComponent = () => {
             </ul>
           </div>
           <div className="w-full lg:w-1/2 lg:pl-8 order-2">
-            <div className="w-full max-w-80 h-60 sm:h-80 mx-auto bg-gray-800 rounded-lg flex items-center justify-center">
-              <span className="text-gray-500">Image Placeholder</span>
+            <div className="w-full max-w-80 h-60 sm:h-80 mx-auto  rounded-lg flex items-center justify-center">
+              <Image
+                src="/included2.avif"
+                alt="Grow Fast"
+                width={320}
+                height={240}
+                className="object-contain rounded-lg w-full h-full"
+                priority
+              />
             </div>
           </div>
         </div>
@@ -83,8 +105,15 @@ export const CourseContentComponent = () => {
         {/* Section 3: Sales Machine */}
         <div className="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-0">
           <div className="w-full lg:w-1/2 lg:pr-8 order-2 lg:order-1">
-            <div className="w-full max-w-80 h-60 sm:h-80 mx-auto bg-gray-800 rounded-lg flex items-center justify-center">
-              <span className="text-gray-500">Image Placeholder</span>
+            <div className="w-full max-w-80 h-60 sm:h-80 mx-auto  rounded-lg flex items-center justify-center">
+              <Image
+                src="/included3.avif"
+                alt="Sales Machine"
+                width={320}
+                height={240}
+                className="object-contain rounded-lg w-full h-full"
+                priority
+              />
             </div>
           </div>
           <div className="w-full lg:w-1/2 lg:pl-8 order-1 lg:order-2">
