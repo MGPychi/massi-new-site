@@ -1,4 +1,6 @@
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import { BadgeSection } from "../ui/badge-section";
 
 export function GuaranteeSection() {
   return (
@@ -6,9 +8,7 @@ export function GuaranteeSection() {
       <div className="mx-auto max-w-4xl text-center">
         <div className="mb-6 sm:mb-8">
           <div className="inline-flex items-center gap-2 bg-gray-800 px-3 sm:px-4 py-2 rounded-full mb-6 sm:mb-8">
-            <span className="text-gray-400 text-xs sm:text-sm">
-              🔒 100% risk-free
-            </span>
+            <BadgeSection>100$ risk-free</BadgeSection>
           </div>
         </div>
 
@@ -17,48 +17,13 @@ export function GuaranteeSection() {
         </h2>
 
         {/* Guarantee Badge */}
-        <div className="mb-8 sm:mb-12">
-          <div className="relative inline-block">
-            <div className="w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 mx-auto bg-white rounded-full flex items-center justify-center border-4 sm:border-6 lg:border-8 border-gray-200">
-              <div className="text-center">
-                <div className="text-black font-bold text-xs sm:text-sm lg:text-lg mb-1">
-                  GUARANTEE
-                </div>
-                <div className="flex justify-center gap-1 mb-1 sm:mb-2">
-                  {[...Array(5)].map((_, i) => (
-                    <span key={i} className="text-black text-xs sm:text-sm">
-                      ★
-                    </span>
-                  ))}
-                </div>
-                <div className="text-black font-bold text-2xl sm:text-3xl lg:text-4xl mb-1">
-                  100%
-                </div>
-                <div className="text-black text-xs sm:text-sm font-medium">
-                  MONEY BACK
-                </div>
-                <div className="flex justify-center gap-1 mt-1 sm:mt-2">
-                  {[...Array(5)].map((_, i) => (
-                    <span key={i} className="text-black text-xs sm:text-sm">
-                      ★
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-            {/* Outer ring text */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-40 h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56 border-2 border-gray-300 rounded-full relative">
-                <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 text-white text-xs font-bold">
-                  GUARANTEE
-                </div>
-                <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 text-white text-xs font-bold">
-                  GUARANTEE
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Image
+          src="/warnty.avif"
+          alt="Guarantee Badge"
+          width={208}
+          height={208}
+          className="mx-auto mb-4 w-36 h-36 sm:w-44 sm:h-44 md:w-56 md:h-56 lg:w-64 lg:h-64 object-contain"
+        />
 
         <div className="space-y-4 sm:space-y-6 text-left max-w-3xl mx-auto mb-8 sm:mb-12 px-4">
           <p className="text-gray-300 text-center text-sm sm:text-base lg:text-lg leading-relaxed">
@@ -111,13 +76,6 @@ export function GuaranteeSection() {
             <span className="text-yellow-400 text-sm sm:text-base">
               ⭐⭐⭐⭐⭐
             </span>
-          </div>
-        </div>
-
-        {/* FAQs badge */}
-        <div className="mt-12 sm:mt-16">
-          <div className="inline-flex items-center gap-2 bg-gray-800 px-3 sm:px-4 py-2 rounded-full">
-            <span className="text-gray-400 text-xs sm:text-sm">❓ FAQs</span>
           </div>
         </div>
       </div>
