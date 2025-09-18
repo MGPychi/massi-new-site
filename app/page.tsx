@@ -36,12 +36,7 @@ export default function DigitalProductAcademy() {
       <UniqueValueSection />
       <GuaranteeSection />
       <FAQSection />
-      {/* <ValueSection />
-      <GuaranteeSection />
-      <ModulesSection />
-      <TestimonialsSection />
-      <FAQSection />
-      <FooterSection /> */}
+      <FooterSection />
     </div>
   );
 }
