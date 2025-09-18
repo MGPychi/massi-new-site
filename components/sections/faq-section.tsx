@@ -5,58 +5,58 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { BadgeSection } from "../ui/badge-section";
 
 export function FAQSection() {
   const faqItems = [
     {
       question: "Will this work anywhere in the world",
       answer:
-        "Yes, absolutely! The Digital Product Academy strategies work globally. Digital products can be sold to anyone, anywhere in the world. Our students are from all over - US, UK, Canada, Australia, Europe, and many other countries - all seeing success.",
+        "Absolutely! You only need to sell what people already want—and we'll help you figure that out no matter where you live.",
     },
     {
       question: "How much money should I invest to get started?",
       answer:
-        "The beauty of digital products is that you need almost zero startup costs. Once you have the DPA course ($97), you can start creating and selling digital products immediately. No inventory, no shipping, no additional tools required to get started.",
+        "Once you join DPA, you won't need to buy anything else—not even Canva Pro.",
     },
     {
       question: "How fast can I see results?",
       answer:
-        "Many of our students see their first sales within 24-72 hours of implementing our strategies. However, everyone's journey is different. Some see results immediately, others within a few weeks. What matters is following the system consistently.",
+        "Great question!\nSome students make their first sale within days; others take a few weeks.\nIt all depends on how closely you follow the steps—but if you stay consistent, you will get there.",
     },
     {
       question: "I don't have a niche yet. Will this work for me?",
       answer:
-        "Perfect! We actually include a comprehensive niche selection guide that shows you 20+ low-competition, high-profit niches that are perfect for beginners. You'll know exactly what niche to choose and why it will be profitable for you.",
+        "Yes! We'll help you discover a niche that fits you and is in demand. You don't need to figure it out alone.",
     },
     {
       question: "Are there any hidden costs?",
       answer:
-        "No hidden costs whatsoever. The $97 gets you everything - the full course, all bonuses, lifetime access, community access, and our 1-on-1 support call. There are no upsells, no monthly fees, no additional costs.",
+        "Nope. Zero upsells.\nWhen you join, you get lifetime access to DPA and all future updates—no extra payments, ever.",
     },
     {
       question: "What if I'm not creative or tech-savvy?",
       answer:
-        "You don't need to be! We show you exactly how to create simple, effective digital products using free tools. Plus, we include ready-made templates and our Canva crash course so you can create professional-looking products even with zero design experience.",
+        "Don't overthink it.\nDPA guides you step-by-step—no tech skills or design experience needed.\nYou just need the will to start.",
     },
     {
       question: "Why should I trust you?",
       answer:
-        "We're not just teaching theory - we're actively doing this ourselves and making consistent income. You can see real results from our students, and we offer a 90-day money-back guarantee. If you don't get results, we'll refund every penny.",
+        "We've helped over 80 digital creators make their first sales in a single day, and we're here to help you do the same",
     },
     {
       question: "Do I need to show my face?",
-      answer:
-        "Not at all! Our strategies focus on faceless content creation. You can build a successful digital product business without ever showing your face, using your real name, or being on camera. We teach you exactly how to do this.",
+      answer: "",
     },
     {
       question: "What if I don't know what product to create?",
       answer:
-        "We've got you covered! The course includes proven product ideas, templates you can customize, and even 10 ready-made digital products you can start selling immediately. You'll never be stuck wondering what to create.",
+        "No worries—we'll help you decide!\nWe also include 10+ PLR and MRR products to help you launch quickly (even if you are starting from scratch).",
     },
     {
       question: "What if I don't get any results?",
       answer:
-        "That's why we offer our 90-day guarantee. If you follow the system for 90 days and don't see results, we'll give you additional 1-on-1 coaching. If that still doesn't work, we'll refund your money completely.",
+        "We'll work with you to find out what's missing and fix it together.\nAnd if you still don't get results after applying the system?\nWe'll refund you.",
     },
   ];
 
@@ -64,9 +64,7 @@ export function FAQSection() {
     <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 bg-black">
       <div className="mx-auto max-w-4xl">
         <div className="text-center mb-8 sm:mb-12">
-          <div className="inline-flex items-center gap-2 bg-gray-800 px-3 sm:px-4 py-2 rounded-full mb-6 sm:mb-8">
-            <span className="text-gray-400 text-xs sm:text-sm">❓ FAQs</span>
-          </div>
+          <BadgeSection> FAQs</BadgeSection>
 
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">
             We're here to help
