@@ -24,8 +24,8 @@ export interface Testimonial {
   rating?: number;
   image?: {
     asset: {
-      _ref: string;
-      _type: "reference";
+      _id: string;
+      url: string;
     };
     alt?: string;
   };

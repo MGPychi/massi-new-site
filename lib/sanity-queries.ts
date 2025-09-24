@@ -1,4 +1,5 @@
 import { client } from "./sanity";
+import { SiteSettings, Testimonial, FAQ, Pricing } from "@/types/sanity";
 
 // Helper function to fetch with proper caching
 async function fetchWithCache<T>(
@@ -13,7 +14,7 @@ async function fetchWithCache<T>(
 }
 
 // Site Settings
-export async function getSiteSettings() {
+export async function getSiteSettings(): Promise<SiteSettings | null> {
   console.log("Fetching siteSettings with tags: siteSettings, sanity-content");
   return fetchWithCache(
     `*[_type == "siteSettings"][0] {
@@ -38,14 +39,20 @@ export async function getSiteSettings() {
 }
 
 // Testimonials
-export async function getTestimonials() {
+export async function getTestimonials(): Promise<Testimonial[]> {
   return fetchWithCache(
     `*[_type == "testimonial"] | order(featured desc, _createdAt desc) {
       _id,
       name,
       content,
       rating,
-      image,
+      image {
+        asset -> {
+          _id,
+          url
+        },
+        alt
+      },
       featured,
       earnings
     }`,
@@ -54,7 +61,7 @@ export async function getTestimonials() {
   );
 }
 
-export async function getFeaturedTestimonials() {
+export async function getFeaturedTestimonials(): Promise<Testimonial[]> {
   console.log("Fetching testimonials with tags: testimonials, sanity-content");
   return fetchWithCache(
     `*[_type == "testimonial" && featured == true] | order(_createdAt desc) {
@@ -62,7 +69,13 @@ export async function getFeaturedTestimonials() {
       name,
       content,
       rating,
-      image,
+      image {
+        asset -> {
+          _id,
+          url
+        },
+        alt
+      },
       earnings
     }`,
     {},
@@ -71,7 +84,7 @@ export async function getFeaturedTestimonials() {
 }
 
 // FAQ
-export async function getFAQs(category?: string) {
+export async function getFAQs(category?: string): Promise<FAQ[]> {
   const categoryFilter = category ? ` && category == "${category}"` : "";
   return fetchWithCache(
     `*[_type == "faq"${categoryFilter}] | order(order asc) {
@@ -87,7 +100,7 @@ export async function getFAQs(category?: string) {
   );
 }
 
-export async function getFeaturedFAQs() {
+export async function getFeaturedFAQs(): Promise<FAQ[]> {
   return fetchWithCache(
     `*[_type == "faq" && featured == true] | order(order asc) {
       _id,
@@ -102,7 +115,7 @@ export async function getFeaturedFAQs() {
 }
 
 // Pricing
-export async function getPricing() {
+export async function getPricing(): Promise<Pricing[]> {
   return fetchWithCache(
     `*[_type == "pricing"] | order(popular desc, _createdAt desc) {
       _id,
@@ -118,9 +131,9 @@ export async function getPricing() {
     ["pricing", "sanity-content"]
   );
 }
-export async function getMainPricing() {
+export async function getMainPricing(): Promise<Pricing | null> {
   // First try to get popular pricing, then fallback to any pricing
-  const popularPricing = await fetchWithCache(
+  const popularPricing = await fetchWithCache<Pricing | null>(
     `*[_type == "pricing" && popular == true][0] {
       _id,
       price,
@@ -140,7 +153,7 @@ export async function getMainPricing() {
   }
 
   // Fallback to any pricing plan
-  const anyPricing = await fetchWithCache(
+  const anyPricing = await fetchWithCache<Pricing | null>(
     `*[_type == "pricing"][0] {
       _id,
       price,

@@ -23,10 +23,14 @@ import {
   getFeaturedFAQs,
   getMainPricing,
 } from "@/lib/sanity-queries";
+import { SiteSettings, Testimonial, FAQ, Pricing } from "@/types/sanity";
 
 export default async function DigitalProductAcademy() {
   // Fetch dynamic content from Sanity
-  let siteSettings, testimonials, faqs, pricing;
+  let siteSettings: SiteSettings | null | undefined;
+  let testimonials: Testimonial[] | null | undefined;
+  let faqs: FAQ[] | null | undefined;
+  let pricing: Pricing | null | undefined;
 
   try {
     [siteSettings, testimonials, faqs, pricing] = await Promise.all([
@@ -41,8 +45,8 @@ export default async function DigitalProductAcademy() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-slate-900 to-black">
-      <HeroSection siteSettings={siteSettings} />
-      <SocialProofSection testimonials={testimonials} />
+      <HeroSection siteSettings={siteSettings ?? undefined} />
+      <SocialProofSection testimonials={testimonials ?? undefined} />
       <BlueprintSection />
       <TargetAudienceSection />
       <CourseContentComponent />
@@ -51,11 +55,11 @@ export default async function DigitalProductAcademy() {
       <ResultsSection />
       {/* <SneakPeekSection /> */}
       <NotForEveryoneSection />
-      <PricingSection pricing={pricing} />
-      <NewTestimonialsSection testimonials={testimonials} />
+      <PricingSection pricing={pricing ?? undefined} />
+      <NewTestimonialsSection testimonials={testimonials ?? undefined} />
       <UniqueValueSection />
       <GuaranteeSection />
-      <FAQSection faqs={faqs} />
+      <FAQSection faqs={faqs ?? undefined} />
       <FooterSection />
     </div>
   );

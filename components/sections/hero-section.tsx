@@ -8,26 +8,13 @@ import {
   SECURITY_BADGES,
 } from "@/lib/constants";
 import { BadgeSection } from "../ui/badge-section";
-import { getSiteSettings } from "@/lib/sanity-queries";
 import { SiteSettings } from "@/types/sanity";
 
 interface HeroSectionProps {
   siteSettings?: SiteSettings;
 }
 
-export async function HeroSection({
-  siteSettings: propSettings,
-}: HeroSectionProps = {}) {
-  // Try to fetch site settings if not provided
-  let siteSettings = propSettings;
-  if (!siteSettings) {
-    try {
-      siteSettings = await getSiteSettings();
-    } catch (error) {
-      console.warn("Failed to fetch site settings:", error);
-    }
-  }
-
+export function HeroSection({ siteSettings }: HeroSectionProps) {
   return (
     <section className="relative px-4 w-full   sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 text-center bg-gradient-to-b from-black via-slate-900 to-black">
       <div className="mx-auto md:max-w-5xl lg:max-w-7xl xl:max-w-8xl">
