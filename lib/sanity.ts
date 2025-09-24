@@ -4,7 +4,7 @@ import imageUrlBuilder from "@sanity/image-url";
 export const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "your-project-id",
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
-  useCdn: true, // Set to false if statically generating pages, using ISR or tag-based revalidation
+  useCdn: false, // Set to false for proper Next.js revalidation with tags
   apiVersion: "2023-05-03", // Use current date (YYYY-MM-DD) to target the latest API version
   // token: process.env.SANITY_SECRET_TOKEN // Only if you want to update content with the client
 });
@@ -20,6 +20,6 @@ export function urlFor(source: any) {
 export const sanityConfig = {
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "your-project-id",
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
-  useCdn: true,
+  useCdn: false, // Set to false for proper Next.js revalidation
   apiVersion: "2023-05-03",
 };

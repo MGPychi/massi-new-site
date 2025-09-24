@@ -1,8 +1,21 @@
 import { client } from "./sanity";
 
+// Helper function to fetch with proper caching
+async function fetchWithCache<T>(
+  query: string,
+  params: any = {},
+  tags: string[]
+): Promise<T> {
+  return client.fetch(query, params, {
+    cache: "force-cache",
+    next: { tags },
+  });
+}
+
 // Site Settings
 export async function getSiteSettings() {
-  return client.fetch(
+  console.log("Fetching siteSettings with tags: siteSettings, sanity-content");
+  return fetchWithCache(
     `*[_type == "siteSettings"][0] {
       title,
       description,
@@ -20,16 +33,13 @@ export async function getSiteSettings() {
       reviewCount
     }`,
     {},
-    {
-      cache: "force-cache",
-      next: { tags: ["siteSettings", "sanity-content"] },
-    }
+    ["siteSettings", "sanity-content"]
   );
 }
 
 // Testimonials
 export async function getTestimonials() {
-  return client.fetch(
+  return fetchWithCache(
     `*[_type == "testimonial"] | order(featured desc, _createdAt desc) {
       _id,
       name,
@@ -40,15 +50,13 @@ export async function getTestimonials() {
       earnings
     }`,
     {},
-    {
-      cache: "force-cache",
-      next: { tags: ["testimonials", "sanity-content"] },
-    }
+    ["testimonials", "sanity-content"]
   );
 }
 
 export async function getFeaturedTestimonials() {
-  return client.fetch(
+  console.log("Fetching testimonials with tags: testimonials, sanity-content");
+  return fetchWithCache(
     `*[_type == "testimonial" && featured == true] | order(_createdAt desc) {
       _id,
       name,
@@ -58,17 +66,14 @@ export async function getFeaturedTestimonials() {
       earnings
     }`,
     {},
-    {
-      cache: "force-cache",
-      next: { tags: ["testimonials", "sanity-content"] },
-    }
+    ["testimonials", "sanity-content"]
   );
 }
 
 // FAQ
 export async function getFAQs(category?: string) {
   const categoryFilter = category ? ` && category == "${category}"` : "";
-  return client.fetch(
+  return fetchWithCache(
     `*[_type == "faq"${categoryFilter}] | order(order asc) {
       _id,
       question,
@@ -78,15 +83,12 @@ export async function getFAQs(category?: string) {
       featured
     }`,
     {},
-    {
-      cache: "force-cache",
-      next: { tags: ["faqs", "sanity-content"] },
-    }
+    ["faqs", "sanity-content"]
   );
 }
 
 export async function getFeaturedFAQs() {
-  return client.fetch(
+  return fetchWithCache(
     `*[_type == "faq" && featured == true] | order(order asc) {
       _id,
       question,
@@ -95,16 +97,13 @@ export async function getFeaturedFAQs() {
       order
     }`,
     {},
-    {
-      cache: "force-cache",
-      next: { tags: ["faqs", "sanity-content"] },
-    }
+    ["faqs", "sanity-content"]
   );
 }
 
 // Pricing
 export async function getPricing() {
-  return client.fetch(
+  return fetchWithCache(
     `*[_type == "pricing"] | order(popular desc, _createdAt desc) {
       _id,
       price,
@@ -116,16 +115,12 @@ export async function getPricing() {
       badge
     }`,
     {},
-    {
-      cache: "force-cache",
-      next: { tags: ["pricing", "sanity-content"] },
-    }
+    ["pricing", "sanity-content"]
   );
 }
-
 export async function getMainPricing() {
   // First try to get popular pricing, then fallback to any pricing
-  const popularPricing = await client.fetch(
+  const popularPricing = await fetchWithCache(
     `*[_type == "pricing" && popular == true][0] {
       _id,
       price,
@@ -137,10 +132,7 @@ export async function getMainPricing() {
       popular
     }`,
     {},
-    {
-      cache: "force-cache",
-      next: { tags: ["pricing", "sanity-content"] },
-    }
+    ["pricing", "sanity-content"]
   );
 
   if (popularPricing) {
@@ -148,7 +140,7 @@ export async function getMainPricing() {
   }
 
   // Fallback to any pricing plan
-  const anyPricing = await client.fetch(
+  const anyPricing = await fetchWithCache(
     `*[_type == "pricing"][0] {
       _id,
       price,
@@ -160,10 +152,7 @@ export async function getMainPricing() {
       popular
     }`,
     {},
-    {
-      cache: "force-cache",
-      next: { tags: ["pricing", "sanity-content"] },
-    }
+    ["pricing", "sanity-content"]
   );
 
   // Debug: Check if any pricing documents exist

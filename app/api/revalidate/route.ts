@@ -53,15 +53,16 @@ export async function POST(request: NextRequest) {
         "sanity-content",
       ];
 
+      console.log("Revalidating common tags:", commonTags);
       commonTags.forEach((tag) => {
+        console.log(`Revalidating tag: ${tag}`);
         revalidateTag(tag);
       });
 
       // Revalidate the main page
+      console.log("Revalidating path: /");
       revalidatePath("/");
-    }
-
-    // If it's a specific document type, revalidate related tags
+    } // If it's a specific document type, revalidate related tags
     if (type) {
       switch (type) {
         case "siteSettings":
