@@ -8,25 +8,43 @@ import {
   SECURITY_BADGES,
 } from "@/lib/constants";
 import { BadgeSection } from "../ui/badge-section";
+import { getSiteSettings } from "@/lib/sanity-queries";
+import { SiteSettings } from "@/types/sanity";
 
-export function HeroSection() {
+interface HeroSectionProps {
+  siteSettings?: SiteSettings;
+}
+
+export async function HeroSection({
+  siteSettings: propSettings,
+}: HeroSectionProps = {}) {
+  // Try to fetch site settings if not provided
+  let siteSettings = propSettings;
+  if (!siteSettings) {
+    try {
+      siteSettings = await getSiteSettings();
+    } catch (error) {
+      console.warn("Failed to fetch site settings:", error);
+    }
+  }
+
   return (
     <section className="relative px-4 w-full   sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 text-center bg-gradient-to-b from-black via-slate-900 to-black">
       <div className="mx-auto md:max-w-5xl lg:max-w-7xl xl:max-w-8xl">
         {/* Trust Badge */}
-        <TrustBadge />
+        <TrustBadge siteSettings={siteSettings} />
 
         {/* Main Headline */}
-        <MainHeadline />
+        <MainHeadline siteSettings={siteSettings} />
 
         {/* Subtitle */}
-        <Subtitle />
+        <Subtitle siteSettings={siteSettings} />
 
         {/* Video Section */}
-        <VideoSection />
+        <VideoSection siteSettings={siteSettings} />
 
         {/* Call to Action Buttons */}
-        <CTAButtons />
+        <CTAButtons siteSettings={siteSettings} />
 
         {/* Security Badges */}
         {/* <SecurityBadges /> */}
@@ -35,26 +53,76 @@ export function HeroSection() {
   );
 }
 
-function TrustBadge() {
+function TrustBadge({ siteSettings }: { siteSettings?: SiteSettings }) {
+  const trustBadgeText =
+    siteSettings?.trustBadgeText || BRAND_INFO.TRUST_BADGE_TEXT;
+
   return (
     <div className="mb-4 sm:mb-6">
-      <BadgeSection>{BRAND_INFO.TRUST_BADGE_TEXT}</BadgeSection>
+      <BadgeSection>{trustBadgeText}</BadgeSection>
     </div>
   );
 }
 
-function MainHeadline() {
+function MainHeadline({ siteSettings }: { siteSettings?: SiteSettings }) {
+  const heroContent = siteSettings?.heroContent;
+
+  // Check for legacy data first, then new structure
+  let headlineMobile = heroContent?.headlineMobile;
+  let headlineDesktop = heroContent?.headlineDesktop;
+
+  if (!headlineMobile && (siteSettings as any)?.mainHeadline) {
+    // Fallback to legacy field if new structure doesn't exist
+    headlineMobile = (siteSettings as any).mainHeadline;
+  }
+
+  if (!headlineDesktop && (siteSettings as any)?.mainHeadline) {
+    // Fallback to legacy field if new structure doesn't exist
+    headlineDesktop = (siteSettings as any).mainHeadline;
+  }
+
   return (
-    <h1 className="mb-4 sm:mb-6 text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl font-medium leading-tight text-white max-w-4xl mx-auto px-2">
-      How This Simple Digital Product{" "}
-      <span className="text-orange-500">Strategy</span> Made Me{" "}
-      <span className="text-green-400">$869.66</span> in One Day{" "}
-      <span className="text-gray-300">(No Experience Needed)</span>
-    </h1>
+    <>
+      {/* Mobile Headline */}
+      {headlineMobile && (
+        <h1
+          className="mb-4 sm:mb-6 text-xl sm:hidden font-medium leading-tight text-white max-w-4xl mx-auto px-2"
+          dangerouslySetInnerHTML={{ __html: headlineMobile }}
+        />
+      )}
+
+      {/* Desktop Headline */}
+      {headlineDesktop && (
+        <h1
+          className="hidden sm:block mb-4 sm:mb-6 text-3xl md:text-4xl lg:text-5xl xl:text-5xl font-medium leading-tight text-white max-w-4xl mx-auto px-2"
+          dangerouslySetInnerHTML={{ __html: headlineDesktop }}
+        />
+      )}
+    </>
   );
 }
 
-function Subtitle() {
+function Subtitle({ siteSettings }: { siteSettings?: SiteSettings }) {
+  const heroContent = siteSettings?.heroContent;
+
+  // Check for legacy data first, then new structure
+  let subtitleContent = heroContent?.subtitle;
+  if (!subtitleContent && (siteSettings as any)?.subHeadline) {
+    // Fallback to legacy field if new structure doesn't exist
+    subtitleContent = (siteSettings as any).subHeadline;
+  }
+
+  // If we have dynamic content, use it with HTML support
+  if (subtitleContent) {
+    return (
+      <p
+        className="mb-6 sm:mb-8 text-sm sm:text-base md:text-lg text-gray-300 max-w-2xl mx-auto px-2"
+        dangerouslySetInnerHTML={{ __html: subtitleContent }}
+      />
+    );
+  }
+
+  // Fallback to static content
   return (
     <p className="mb-6 sm:mb-8 text-sm sm:text-base md:text-lg text-gray-300 max-w-2xl mx-auto px-2">
       No big followers, No experience needed,{" "}
@@ -63,7 +131,9 @@ function Subtitle() {
   );
 }
 
-function VideoSection() {
+function VideoSection({ siteSettings }: { siteSettings?: SiteSettings }) {
+  const videoId = siteSettings?.wistiaVideoId || VIDEO_CONFIG.WISTIA_VIDEO_ID;
+
   return (
     <div className="mb-2 sm:mb-4 max-w-4xl mx-auto">
       <div className="rounded-xl sm:rounded-2xl overflow-hidden p-3 py-1 sm:p-4 md:p-6 md:py-2">
@@ -71,7 +141,7 @@ function VideoSection() {
         <div className="relative w-full">
           <div className="aspect-video bg-slate-900 rounded-lg sm:rounded-xl flex items-center justify-center">
             <wistia-player
-              media-id={VIDEO_CONFIG.WISTIA_VIDEO_ID}
+              media-id={videoId}
               aspect={VIDEO_CONFIG.WISTIA_ASPECT_RATIO}
               className="w-full h-full rounded-lg sm:rounded-xl"
             />
@@ -85,7 +155,9 @@ function VideoSection() {
   );
 }
 
-function ReviewsSection() {
+function ReviewsSection({ siteSettings }: { siteSettings?: SiteSettings }) {
+  const reviewCount = siteSettings?.reviewCount || BRAND_INFO.REVIEW_COUNT;
+
   return (
     <div className="flex items-center justify-center gap-2 sm:gap-3">
       <div className="flex" aria-label="5 out of 5 stars">
@@ -100,14 +172,19 @@ function ReviewsSection() {
       <span className="text-white text-xs sm:text-base font-semibold">
         5 out of 5
       </span>
-      <span className="text-gray-400 text-xs sm:text-sm">
-        ({BRAND_INFO.REVIEW_COUNT})
-      </span>
+      <span className="text-gray-400 text-xs sm:text-sm">({reviewCount})</span>
     </div>
   );
 }
 
-function CTAButtons() {
+function CTAButtons({ siteSettings }: { siteSettings?: SiteSettings }) {
+  const ctaPrimaryText =
+    siteSettings?.ctaPrimaryText || CTA_TEXT.PRIMARY_DESKTOP;
+  const ctaPrimaryMobile =
+    siteSettings?.ctaPrimaryMobile || CTA_TEXT.PRIMARY_MOBILE;
+  const checkoutUrl =
+    siteSettings?.checkoutUrl || process.env.NEXT_PUBLIC_CHECKOUT_URL;
+
   return (
     <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4">
       <Button
@@ -116,13 +193,9 @@ function CTAButtons() {
         asChild
         className="text-sm sm:text-base"
       >
-        <a
-          href={process.env.NEXT_PUBLIC_CHECKOUT_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span className="hidden sm:inline">{CTA_TEXT.PRIMARY_DESKTOP}</span>
-          <span className="sm:hidden">{CTA_TEXT.PRIMARY_MOBILE}</span>
+        <a href={checkoutUrl} target="_blank" rel="noopener noreferrer">
+          <span className="hidden sm:inline">{ctaPrimaryText}</span>
+          <span className="sm:hidden">{ctaPrimaryMobile}</span>
         </a>
       </Button>
     </div>

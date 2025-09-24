@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export function WhatsIncludedSection() {
   const bonuses = [
     {
@@ -46,7 +48,7 @@ export function WhatsIncludedSection() {
   ];
 
   return (
-    <section className="px-4 py-16 bg-black">
+    <section className="px-4 py-2 bg-black">
       <div className="mx-auto max-w-7xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -55,7 +57,7 @@ export function WhatsIncludedSection() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {bonuses.map((bonus, index) => (
             <div
               key={index}
@@ -65,11 +67,15 @@ export function WhatsIncludedSection() {
               <div className="absolute top-0 right-0 w-20 h-20">
                 {/* <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-blue-400/30 via-blue-400/10 to-transparent rounded-br-3xl" /> */}
               </div>
-              <div className="aspect-video bg-gray-800 rounded-lg mb-4 overflow-hidden">
-                <img
+              <div className="aspect-video bg-gradient-to-tr from-gray-800/60 to-transparent rounded-lg mb-4 overflow-hidden flex items-center justify-center">
+                <Image
                   src={bonus.image}
                   alt={bonus.title}
-                  className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                  width={300}
+                  height={300}
+                  className="w-full h-full  object-contain   transition-transform duration-300 ease-out hover:scale-105"
                 />
               </div>
 
@@ -77,11 +83,14 @@ export function WhatsIncludedSection() {
                 {bonus.title}
               </h3>
 
-              <p className="text-orange-500 font-medium text-sm mb-3">
-                {bonus.value}
-              </p>
+              <div className="flex items-center gap-2">
+                <p className="text-gray-100 font-medium text-sm mb-3">
+                  <del className="text-gray-400">{bonus.value}</del>
+                </p>
+                <p className="text-orange-500 font-bold text-sm mb-3">Free</p>
+              </div>
 
-              <p className="text-gray-400 text-sm leading-relaxed">
+              <p className="text-gray-400 text-sm  leading-relaxed">
                 {bonus.description}
               </p>
             </div>
@@ -115,7 +124,7 @@ export function WhatsIncludedSection() {
               You Save: $1,711
             </p>
 
-            <button className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-4 rounded-lg text-lg mb-6 transition-colors">
+            <button className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-2 rounded-lg text-lg mb-6 transition-colors">
               YES! I Want Instant Access →
             </button>
 

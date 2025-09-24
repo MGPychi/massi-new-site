@@ -3,8 +3,86 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Star } from "lucide-react";
 import Image from "next/image";
 import clsx from "clsx";
+import { Testimonial } from "@/types/sanity";
+import { urlFor } from "@/lib/sanity";
 
-export function SocialProofSection() {
+interface SocialProofSectionProps {
+  testimonials?: Testimonial[];
+}
+
+export function SocialProofSection({ testimonials }: SocialProofSectionProps) {
+  // If we have dynamic testimonials, show them
+  if (testimonials && testimonials.length > 0) {
+    return (
+      <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid gap-6 sm:gap-8 md:grid-cols-2">
+            {testimonials.slice(0, 2).map((testimonial) => (
+              <Card
+                key={testimonial._id}
+                className="bg-black relative rounded-2xl sm:rounded-3xl border border-gray-700/30 w-fit h-fit"
+              >
+                <div
+                  className="absolute top-0 right-0 w-40 h-24 pointer-events-none z-0"
+                  style={{
+                    background:
+                      "radial-gradient(ellipse at top right, rgba(59,130,246,0.22) 0%, transparent 80%)",
+                  }}
+                />
+                <CardContent className="p-4 sm:p-6 relative z-10">
+                  <div className="mb-3 sm:mb-4">
+                    <h3 className="text-white font-semibold text-sm sm:text-base">
+                      {testimonial.name}
+                    </h3>
+                    {testimonial.earnings && (
+                      <p className="text-gray-400 text-xs sm:text-sm">
+                        {testimonial.earnings}
+                      </p>
+                    )}
+                  </div>
+                  <p className="text-gray-300 text-xs sm:text-sm mb-3 sm:mb-4">
+                    "{testimonial.content}"
+                  </p>
+
+                  {testimonial.rating && (
+                    <div className="flex items-center gap-1 mb-3">
+                      {Array.from({ length: testimonial.rating }, (_, i) => (
+                        <Star
+                          key={i}
+                          className="h-3 w-3 sm:h-4 sm:w-4 fill-yellow-400 text-yellow-400"
+                        />
+                      ))}
+                    </div>
+                  )}
+
+                  {testimonial.image && (
+                    <div className="bg-black rounded-2xl sm:rounded-3xl p-1 sm:p-4 mb-3 sm:mb-4 flex items-center justify-center">
+                      <Image
+                        src={urlFor(testimonial.image)
+                          .width(400)
+                          .height(260)
+                          .url()}
+                        alt={
+                          testimonial.image.alt ||
+                          `Testimonial from ${testimonial.name}`
+                        }
+                        width={400}
+                        height={260}
+                        className="rounded-2xl sm:rounded-3xl w-full h-auto"
+                        style={{ objectFit: "contain" }}
+                      />
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // Fallback to static content
   return (
     <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
       <div className="mx-auto max-w-6xl">

@@ -17,12 +17,32 @@ import { ModulesSection } from "@/components/sections/modules-section";
 import { TestimonialsSection } from "@/components/sections/testimonials-section";
 import { FAQSection } from "@/components/sections/faq-section";
 import { FooterSection } from "@/components/sections/footer-section";
+import {
+  getSiteSettings,
+  getFeaturedTestimonials,
+  getFeaturedFAQs,
+  getMainPricing,
+} from "@/lib/sanity-queries";
 
-export default function DigitalProductAcademy() {
+export default async function DigitalProductAcademy() {
+  // Fetch dynamic content from Sanity
+  let siteSettings, testimonials, faqs, pricing;
+
+  try {
+    [siteSettings, testimonials, faqs, pricing] = await Promise.all([
+      getSiteSettings(),
+      getFeaturedTestimonials(),
+      getFeaturedFAQs(),
+      getMainPricing(),
+    ]);
+  } catch (error) {
+    console.warn("Failed to fetch some Sanity content:", error);
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-slate-900 to-black">
-      <HeroSection />
-      <SocialProofSection />
+      <HeroSection siteSettings={siteSettings} />
+      <SocialProofSection testimonials={testimonials} />
       <BlueprintSection />
       <TargetAudienceSection />
       <CourseContentComponent />
@@ -31,11 +51,11 @@ export default function DigitalProductAcademy() {
       <ResultsSection />
       {/* <SneakPeekSection /> */}
       <NotForEveryoneSection />
-      <PricingSection />
-      <NewTestimonialsSection />
+      <PricingSection pricing={pricing} />
+      <NewTestimonialsSection testimonials={testimonials} />
       <UniqueValueSection />
       <GuaranteeSection />
-      <FAQSection />
+      <FAQSection faqs={faqs} />
       <FooterSection />
     </div>
   );

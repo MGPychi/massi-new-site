@@ -8,9 +8,7 @@ export async function getSiteSettings() {
       description,
       heroContent {
         headline,
-        subtitle,
-        headlineMobile,
-        headlineDesktop
+        subtitle
       },
       trustBadgeText,
       wistiaVideoId,
@@ -82,7 +80,9 @@ export async function getPricing() {
   return client.fetch(`
     *[_type == "pricing"] | order(popular desc, _createdAt desc) {
       _id,
+      title,
       price,
+      originalPrice,
       description,
       features,
       ctaText,
@@ -94,43 +94,17 @@ export async function getPricing() {
 }
 
 export async function getMainPricing() {
-  // First try to get popular pricing, then fallback to any pricing
-  const popularPricing = await client.fetch(`
+  return client.fetch(`
     *[_type == "pricing" && popular == true][0] {
       _id,
+      title,
       price,
+      originalPrice,
       description,
       features,
       ctaText,
       ctaUrl,
-      badge,
-      popular
+      badge
     }
   `);
-
-  if (popularPricing) {
-    return popularPricing;
-  }
-
-  // Fallback to any pricing plan
-  const anyPricing = await client.fetch(`
-    *[_type == "pricing"][0] {
-      _id,
-      price,
-      description,
-      features,
-      ctaText,
-      ctaUrl,
-      badge,
-      popular
-    }
-  `);
-
-  // Debug: Check if any pricing documents exist
-  if (!anyPricing) {
-    const allPricing = await client.fetch(`*[_type == "pricing"]`);
-    console.log("No pricing found. All pricing documents:", allPricing);
-  }
-
-  return anyPricing;
 }

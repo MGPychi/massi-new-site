@@ -2,15 +2,17 @@ import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
 import { visionTool } from "@sanity/vision";
 import { schemaTypes } from "./sanity/schemaTypes/index";
+import { structure } from "./sanity/structure";
 
 export default defineConfig({
   name: "default",
-  title: "Massi Site CMS",
+  title: "Digital Site CMS",
 
-  projectId: "your-project-id", // Replace with your actual project ID
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID ?? "",
   dataset: "production",
+  basePath: "/studio",
 
-  plugins: [structureTool(), visionTool()],
+  plugins: [structureTool({ structure }), visionTool()],
 
   schema: {
     types: schemaTypes,

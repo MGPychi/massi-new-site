@@ -57,14 +57,6 @@ export function FooterSection() {
                   Home
                 </a>
               </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Refund Policy
-                </a>
-              </li>
             </ul>
           </div>
         </div>

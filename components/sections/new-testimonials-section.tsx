@@ -1,6 +1,21 @@
 import { BadgeSection } from "../ui/badge-section";
+import { Testimonial } from "@/types/sanity";
+import Image from "next/image";
+import { urlFor } from "@/lib/sanity";
 
-export const testimonials = [
+interface TestimonialsSectionProps {
+  testimonials?: Testimonial[];
+}
+
+interface StaticTestimonial {
+  name: string;
+  role: string;
+  content: string;
+  hasScreenshot: boolean;
+  screenshotImage: string;
+}
+
+export const staticTestimonials: StaticTestimonial[] = [
   {
     name: "@lorita",
     role: "Digital Products & IG Growth",
@@ -59,7 +74,14 @@ export const testimonials = [
   },
 ];
 
-export function TestimonialsSection() {
+export function TestimonialsSection({
+  testimonials,
+}: TestimonialsSectionProps) {
+  // Use dynamic testimonials if available, otherwise use static ones
+  const displayTestimonials =
+    testimonials && testimonials.length > 0 ? testimonials : staticTestimonials;
+  const isDynamic = testimonials && testimonials.length > 0;
+
   return (
     <section className="px-4 py-16 bg-black">
       <div className="mx-auto max-w-7xl">
@@ -76,7 +98,7 @@ export function TestimonialsSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {testimonials.map((testimonial, index) => (
+          {displayTestimonials.map((testimonial, index) => (
             <div
               key={index}
               className="bg-black/40 backdrop-blur-md rounded-2xl p-6 border border-gray-700/50"
@@ -85,7 +107,11 @@ export function TestimonialsSection() {
                 <h4 className="text-white font-semibold text-lg mb-1">
                   {testimonial.name}
                 </h4>
-                <p className="text-gray-400 text-sm">{testimonial.role}</p>
+                <p className="text-gray-400 text-sm">
+                  {isDynamic
+                    ? (testimonial as Testimonial).earnings || "Student"
+                    : (testimonial as StaticTestimonial).role}
+                </p>
               </div>
 
               <div className="space-y-4">
@@ -93,15 +119,27 @@ export function TestimonialsSection() {
                   {testimonial.content}
                 </p>
 
-                {testimonial.hasScreenshot && (
+                {/* Handle both static and dynamic image structures */}
+                {((isDynamic && (testimonial as Testimonial).image) ||
+                  (!isDynamic &&
+                    (testimonial as StaticTestimonial).hasScreenshot)) && (
                   <div className="bg-black/30 backdrop-blur-sm rounded-lg p-4 border border-gray-600/40">
                     <div className="text-xs text-gray-400 mb-2">
                       Screenshot:
                     </div>
                     <div className="rounded overflow-hidden">
-                      <img
-                        src={testimonial.screenshotImage}
+                      <Image
+                        src={
+                          isDynamic
+                            ? urlFor((testimonial as Testimonial).image!)
+                                .width(400)
+                                .height(300)
+                                .url()
+                            : (testimonial as StaticTestimonial).screenshotImage
+                        }
                         alt={`Screenshot from ${testimonial.name}`}
+                        width={400}
+                        height={300}
                         className="w-full h-auto object-contain"
                       />
                     </div>

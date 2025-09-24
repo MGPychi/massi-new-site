@@ -11,8 +11,13 @@ import {
   Mail,
 } from "lucide-react";
 import { BadgeSection } from "../ui/badge-section";
+import { Pricing } from "@/types/sanity";
 
-export function PricingSection() {
+interface PricingSectionProps {
+  pricing?: Pricing;
+}
+
+export function PricingSection({ pricing }: PricingSectionProps) {
   const features = [
     {
       icon: Check,
@@ -64,11 +69,25 @@ export function PricingSection() {
     },
   ];
 
+  // Use dynamic pricing if available, otherwise use static content
+  const price = pricing?.price || "$97";
+  const description =
+    pricing?.description || "Get The Full Access Before The Price Goes Up";
+  const dynamicFeatures = pricing?.features?.map((text) => ({
+    text,
+    icon: Check,
+  }));
+  const displayFeatures =
+    dynamicFeatures && dynamicFeatures.length > 0 ? dynamicFeatures : features;
+  const ctaText = pricing?.ctaText || "Get Instant Access Now →";
+  const ctaUrl = pricing?.ctaUrl || process.env.NEXT_PUBLIC_CHECKOUT_URL;
+  const badge = pricing?.badge || "Badge";
+
   return (
     <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 relative">
       <div className="mx-auto max-w-2xl">
         <div className="text-center mb-6 sm:mb-8">
-          <BadgeSection>Badge</BadgeSection>
+          <BadgeSection>{badge}</BadgeSection>
         </div>
 
         {/* Main Pricing Card */}
@@ -76,12 +95,12 @@ export function PricingSection() {
           <div className="absolute top-0 left-0 w-32 h-32 bg-blue-800 rounded-full blur-3xl opacity-50"></div>
           <div className="text-center mb-6 sm:mb-8">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">
-              $97 lifetime access
+              {price}
             </h2>
           </div>
 
           <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
-            {features.map((feature, index) => {
+            {displayFeatures.map((feature, index) => {
               const IconComponent = feature.icon;
               return (
                 <div key={index} className="flex items-center gap-3">
@@ -98,7 +117,7 @@ export function PricingSection() {
 
           <div className="text-center">
             <p className="text-gray-300 text-xs sm:text-sm mb-4 sm:mb-6">
-              Get The Full Access Before The Price Goes Up
+              {description}
             </p>
 
             <Button
@@ -106,14 +125,8 @@ export function PricingSection() {
               className="w-full bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white py-4 sm:py-5 text-base sm:text-lg font-bold rounded-lg transition-all duration-200  shadow-lg hover:shadow-orange-500/25"
               asChild
             >
-              <a
-                href={process.env.NEXT_PUBLIC_CHECKOUT_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span className="hidden sm:inline">
-                  Get Instant Access Now →
-                </span>
+              <a href={ctaUrl} target="_blank" rel="noopener noreferrer">
+                <span className="hidden sm:inline">{ctaText}</span>
                 <span className="sm:hidden">Get Access →</span>
               </a>
             </Button>

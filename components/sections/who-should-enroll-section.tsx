@@ -1,6 +1,6 @@
 export function WhoShouldEnrollSection() {
   return (
-    <section className="px-4 py-16 bg-black">
+    <section className="px-4 py-4 bg-black">
       <div className="mx-auto max-w-2xl">
         <h2 className="mb-12 text-center text-3xl font-bold text-white md:text-4xl">
           In case we haven't met yet...

@@ -6,9 +6,15 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { BadgeSection } from "../ui/badge-section";
+import { FAQ } from "@/types/sanity";
 
-export function FAQSection() {
-  const faqItems = [
+interface FAQSectionProps {
+  faqs?: FAQ[];
+}
+
+export function FAQSection({ faqs }: FAQSectionProps) {
+  // Default static FAQs as fallback
+  const staticFaqItems = [
     {
       question: "Will this work anywhere in the world",
       answer:
@@ -59,6 +65,9 @@ export function FAQSection() {
         "We'll work with you to find out what's missing and fix it together.\nAnd if you still don't get results after applying the system?\nWe'll refund you.",
     },
   ];
+
+  // Use dynamic FAQs if available, otherwise use static ones
+  const faqItems = faqs && faqs.length > 0 ? faqs : staticFaqItems;
 
   return (
     <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 bg-black">
