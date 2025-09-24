@@ -1,52 +1,52 @@
 import Image from "next/image";
 
-export function WhatsIncludedSection() {
-  const bonuses = [
-    {
-      image: "/value1.avif",
-      title: "One-on-One Support Call",
-      value: "$397 Value",
-      description: "Personalized guidance to move you forward",
-    },
-    {
-      image: "/value2.avif",
-      title: "Private Creators Community",
-      value: "$497 Value",
-      description: "Get feedback, support & accountability",
-    },
-    {
-      image: "/value3.avif",
-      title: "20+ Low-Competition Niches",
-      value: "$97 Value",
-      description: "Top 20 niches for digital products Low-Competition",
-    },
-    {
-      image: "/value4.avif",
-      title: "10 Ready-Made Digital Products (PLR/ MRR)",
-      value: "$497 Value",
-      description: "Start selling from day one",
-    },
-    {
-      image: "/value5.avif",
-      title: "Canva Crash Course",
-      value: "$97 Value",
-      description: "Design like a pro without any prior skills",
-    },
-    {
-      image: "/value6.avif",
-      title: "Morychat Template",
-      value: "$97 Value",
-      description:
-        "Custom templates to collect emails, send them content and promote your products automatically",
-    },
-    {
-      image: "/value7.avif",
-      title: "Story Selling Prompt",
-      value: "$97 Value",
-      description: "Custom prompt how to sell without sounding salesy",
-    },
-  ];
+const bonuses = [
+  {
+    image: "/value1.avif",
+    title: "One-on-One Support ",
+    value: "$397 Value",
+    description: "Personalized guidance to move you forward",
+  },
+  {
+    image: "/value2.avif",
+    title: "Private Creators Community",
+    value: "$147 Value",
+    description: "Get feedback, support & accountability",
+  },
+  {
+    image: "/value3.avif",
+    title: "20+ Low-Competition Niches",
+    value: "$47 Value",
+    description: "Top 20 niches for digital products Low-Competition",
+  },
+  {
+    image: "/value4.avif",
+    title: "10 Ready-Made Digital Products (PLR/ MRR)",
+    value: "$97 Value",
+    description: "Start selling from day one",
+  },
+  {
+    image: "/value5.avif",
+    title: "Canva Crash Course",
+    value: "$47 Value",
+    description: "Design like a pro without any prior skills",
+  },
+  {
+    image: "/value6.avif",
+    title: "Morychat Template",
+    value: "$47 Value",
+    description:
+      "Custom templates to collect emails, send them content and promote your products automatically",
+  },
+  {
+    image: "/value7.avif",
+    title: "Story Selling Prompt",
+    value: "$37 Value",
+    description: "Custom prompt how to sell without sounding salesy",
+  },
+];
 
+export function WhatsIncludedSection() {
   return (
     <section className="px-4 py-2 bg-black">
       <div className="mx-auto max-w-7xl">

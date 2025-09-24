@@ -41,7 +41,7 @@ export function PricingSection({ pricing }: PricingSectionProps) {
     },
     {
       icon: MessageCircle,
-      text: "1-1 support call",
+      text: "1-1 support ",
     },
     {
       icon: Download,

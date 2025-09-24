@@ -42,7 +42,7 @@ export function WhoShouldEnrollSection() {
           <p className="text-gray-300 leading-relaxed">
             Some of our clients{" "}
             <strong className="text-white">(selling digital products)</strong>{" "}
-            were making thousands — from <em>just one Instagram post</em>.
+            were making thousands — from <em>just one Instagram Reel</em>.
           </p>
 
           <p className="text-gray-300 leading-relaxed">
@@ -71,7 +71,7 @@ export function WhoShouldEnrollSection() {
 
           <p className="text-gray-300 leading-relaxed">
             Within <strong className="text-white">2 months</strong>, we made
-            over <strong className="text-white">$6,000</strong> — from a brand
+            over <strong className="text-white">$4,000</strong> — from a brand
             new <strong className="text-white">IG account</strong>.<br />
             No ads. No fancy tools.
             <br />
