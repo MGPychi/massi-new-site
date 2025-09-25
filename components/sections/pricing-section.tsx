@@ -105,7 +105,7 @@ export function PricingSection({ pricing }: PricingSectionProps) {
               return (
                 <div key={index} className="flex items-center gap-3">
                   <div className="bg-gray-700 rounded-full p-1.5 sm:p-2 flex-shrink-0">
-                    <IconComponent className="h-3 w-3 sm:h-4 sm:w-4 text-white" />
+                    <IconComponent className="h-4 w-4 sm:h-4 sm:w-4 text-green-500" />
                   </div>
                   <span className="text-white text-xs sm:text-sm md:text-base">
                     {feature.text}
