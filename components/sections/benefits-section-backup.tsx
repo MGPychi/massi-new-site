@@ -9,7 +9,10 @@ export const BenefitsSection = () => {
             What's Included
           </h2>
           <p className="text-lg text-gray-300">
-            Here's what you will find <span className="text-orange-400 font-semibold">inside this course...</span>
+            Here's what you will find{" "}
+            <span className="text-orange-400 font-semibold">
+              inside this course...
+            </span>
           </p>
         </div>
 
@@ -59,7 +62,10 @@ export const BenefitsSection = () => {
           {/* Build the Foundation Content */}
           <div className="flex flex-col justify-center">
             <h3 className="text-2xl font-bold text-white mb-2">
-              Build the Foundation <span className="text-sm font-normal text-gray-400">($197 Value)</span>
+              Build the Foundation{" "}
+              <span className="text-sm font-normal text-gray-400">
+                ($197 Value)
+              </span>
             </h3>
             <ul className="space-y-3 text-white">
               <li className="flex items-start">
@@ -68,15 +74,23 @@ export const BenefitsSection = () => {
               </li>
               <li className="flex items-start">
                 <span className="text-orange-400 mr-3 mt-1">•</span>
-                <span>What is PLR/MRR? And How to Make Money Reselling Them</span>
+                <span>
+                  What is PLR/MRR? And How to Make Money Reselling Them
+                </span>
               </li>
               <li className="flex items-start">
                 <span className="text-orange-400 mr-3 mt-1">•</span>
-                <span>Top Niches & Tools to Start Selling Digital Products. NO More confusion</span>
+                <span>
+                  Top Niches & Tools to Start Selling Digital Products. NO More
+                  confusion
+                </span>
               </li>
               <li className="flex items-start">
                 <span className="text-orange-400 mr-3 mt-1">•</span>
-                <span>Step-by-step: Create a high-converting store and start driving traffic</span>
+                <span>
+                  Step-by-step: Create a high-converting store and start driving
+                  traffic
+                </span>
               </li>
               <li className="flex items-start">
                 <span className="text-orange-400 mr-3 mt-1">•</span>
@@ -91,7 +105,10 @@ export const BenefitsSection = () => {
           {/* Grow Fast Content */}
           <div className="flex flex-col justify-center lg:order-2">
             <h3 className="text-2xl font-bold text-white mb-2">
-              Grow Fast — O to 10K Followers <span className="text-sm font-normal text-gray-400">($397 Value)</span>
+              Grow Fast — O to 10K Followers{" "}
+              <span className="text-sm font-normal text-gray-400">
+                ($397 Value)
+              </span>
             </h3>
             <ul className="space-y-3 text-white">
               <li className="flex items-start">
@@ -104,7 +121,10 @@ export const BenefitsSection = () => {
               </li>
               <li className="flex items-start">
                 <span className="text-orange-400 mr-3 mt-1">•</span>
-                <span>Reveal my secrets and The exact pro tips I used to build 10,000 followers audience</span>
+                <span>
+                  Reveal my secrets and The exact pro tips I used to build
+                  10,000 followers audience
+                </span>
               </li>
               <li className="flex items-start">
                 <span className="text-orange-400 mr-3 mt-1">•</span>
@@ -251,60 +271,67 @@ export const BenefitsSection = () => {
               </div>
             </div>
           </div>
-          </div>
-
-          {/* Sales Machine Content */}
-          <div className="flex flex-col justify-center">
-            <h3 className="text-2xl font-bold text-white mb-2">
-              Sales Machine (Automate Your Business) <span className="text-sm font-normal text-gray-400">($397 Value)</span>
-            </h3>
-            <ul className="space-y-3 text-white">
-              <li className="flex items-start">
-                <span className="text-orange-400 mr-3 mt-1">•</span>
-                <span>Building an Ecosystem</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-orange-400 mr-3 mt-1">•</span>
-                <span>How I Structure Content to Build Revenue</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-orange-400 mr-3 mt-1">•</span>
-                <span>5 Steps You Need to Know</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-orange-400 mr-3 mt-1">•</span>
-                <span>Setup Your Account</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-orange-400 mr-3 mt-1">•</span>
-                <span>Caption (how to make your caption better)</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-orange-400 mr-3 mt-1">•</span>
-                <span>Part 2: Turn your store into a money printer</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-orange-400 mr-3 mt-1">•</span>
-                <span>Email (Newsletters/Marketing)</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-orange-400 mr-3 mt-1">•</span>
-                <span>Marychat (Automate Your Business)</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-orange-400 mr-3 mt-1">•</span>
-                <span>And More...</span>
-              </li>
-            </ul>
-          </div>
         </div>
 
-        {/* CTA Button */}
-        <div className="mt-16 text-center">
-          <button className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold py-4 px-12 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105 text-lg">
-            JOIN DPA
-          </button>
+        {/* Sales Machine Content */}
+        <div className="flex flex-col justify-center">
+          <h3 className="text-2xl font-bold text-white mb-2">
+            Sales Machine (Automate Your Business){" "}
+            <span className="text-sm font-normal text-gray-400">
+              ($397 Value)
+            </span>
+          </h3>
+          <ul className="space-y-3 text-white">
+            <li className="flex items-start">
+              <span className="text-orange-400 mr-3 mt-1">•</span>
+              <span>Building an Ecosystem</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-orange-400 mr-3 mt-1">•</span>
+              <span>How I Structure Content to Build Revenue</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-orange-400 mr-3 mt-1">•</span>
+              <span>5 Steps You Need to Know</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-orange-400 mr-3 mt-1">•</span>
+              <span>Setup Your Account</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-orange-400 mr-3 mt-1">•</span>
+              <span>Caption (how to make your caption better)</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-orange-400 mr-3 mt-1">•</span>
+              <span>Part 2: Turn your store into a money printer</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-orange-400 mr-3 mt-1">•</span>
+              <span>Email (Newsletters/Marketing)</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-orange-400 mr-3 mt-1">•</span>
+              <span>Marychat (Automate Your Business)</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-orange-400 mr-3 mt-1">•</span>
+              <span>And More...</span>
+            </li>
+          </ul>
         </div>
+      </div>
+
+      {/* CTA Button */}
+      <div className="mt-16 text-center">
+        <a
+          href={process.env.NEXT_PUBLIC_CHECKOUT_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold py-4 px-12 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105 text-lg inline-block"
+        >
+          JOIN DPA
+        </a>
       </div>
     </div>
   );

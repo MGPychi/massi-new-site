@@ -47,8 +47,15 @@ export function SneakPeekSection() {
           <Button
             size="lg"
             className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold mb-4"
+            asChild
           >
-            See Myself in This → I'm Ready to Join DPA →
+            <a
+              href={process.env.NEXT_PUBLIC_CHECKOUT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              See Myself in This → I'm Ready to Join DPA →
+            </a>
           </Button>
 
           {/* Trust badges */}

@@ -1,4 +1,5 @@
 import { Instagram, Facebook } from "lucide-react";
+import Image from "next/image";
 
 export function FooterSection() {
   return (
@@ -16,31 +17,37 @@ export function FooterSection() {
             {/* Social Links */}
             <div className="flex items-center gap-4">
               <a
-                href="#"
+                href="https://www.instagram.com/hm.facelessmarketing/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5 text-white" />
               </a>
               <a
-                href="#"
+                href="https://web.facebook.com/profile.php?id=61563378608319"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="w-5 h-5 text-white" />
               </a>
               <a
-                href="#"
+                href="https://www.threads.net/@her.facelessmarketing"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors"
                 aria-label="Threads"
               >
-                <svg
-                  className="w-5 h-5 text-white"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.5 12.526v-.017C1.5 5.789 5.789 1.5 12.526 1.5h.948C20.211 1.5 24.5 5.789 24.5 12.526v.017c0 3.06-.85 5.914-2.595 8.465-1.85 2.304-4.603 3.485-8.184 3.509h-.535zm0-21h-.007C7.005 3.024 3.5 6.529 3.5 12.509v.017c0 2.688.746 5.229 2.281 7.348 1.536 2.119 3.781 3.126 6.879 3.126h.535c3.098 0 5.343-1.007 6.879-3.126C21.609 17.755 22.5 15.214 22.5 12.526v-.017C22.5 6.529 18.995 3.024 12.979 3.024h-.793z" />
-                </svg>
+                <Image
+                  src="/threads.png"
+                  alt="Threads"
+                  width={20}
+                  height={20}
+                  className="w-5 h-5"
+                />
               </a>
             </div>
           </div>

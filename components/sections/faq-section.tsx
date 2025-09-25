@@ -52,7 +52,8 @@ export function FAQSection({ faqs }: FAQSectionProps) {
     },
     {
       question: "Do I need to show my face?",
-      answer: "",
+      answer:
+        "Not at all! You can build a successful digital product business completely anonymously. Many of our students prefer to stay behind the scenes and focus on creating valuable content without ever showing their face.",
     },
     {
       question: "What if I don't know what product to create?",

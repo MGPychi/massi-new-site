@@ -124,9 +124,14 @@ export function WhatsIncludedSection() {
               You Save: $1,711
             </p>
 
-            <button className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-2 rounded-lg text-lg mb-6 transition-colors">
+            <a
+              href={process.env.NEXT_PUBLIC_CHECKOUT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-2 rounded-lg text-lg mb-6 transition-colors inline-block"
+            >
               YES! I Want Instant Access →
-            </button>
+            </a>
 
             {/* Trust badges */}
             <div className="flex justify-center items-center gap-4 mb-6">

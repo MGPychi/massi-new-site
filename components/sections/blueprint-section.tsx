@@ -66,8 +66,15 @@ export function BlueprintSection() {
           <Button
             size="lg"
             className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg text-lg font-semibold"
+            asChild
           >
-            Get Access
+            <a
+              href={process.env.NEXT_PUBLIC_CHECKOUT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Get Access
+            </a>
           </Button>
         </div>
       </div>

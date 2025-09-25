@@ -90,8 +90,15 @@ export function TestimonialsSection() {
           <Button
             size="lg"
             className="w-full sm:w-auto bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-lg"
+            asChild
           >
-            Get Access →
+            <a
+              href={process.env.NEXT_PUBLIC_CHECKOUT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Get Access →
+            </a>
           </Button>
         </div>
       </div>
