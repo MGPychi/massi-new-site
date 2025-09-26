@@ -1,4 +1,9 @@
 import { Button } from "@/components/ui/button";
+import { SiteSettings } from "@/types/sanity";
+
+interface BlueprintSectionProps {
+  siteSettings?: SiteSettings;
+}
 
 const faqData = [
   {
@@ -31,7 +36,9 @@ const faqData = [
   },
 ];
 
-export function BlueprintSection() {
+export function BlueprintSection({ siteSettings }: BlueprintSectionProps) {
+  const checkoutUrl =
+    siteSettings?.checkoutUrl || process.env.NEXT_PUBLIC_CHECKOUT_URL;
   return (
     <section className="px-4 py-16 bg-black">
       <div className="mx-auto max-w-6xl">
@@ -68,11 +75,7 @@ export function BlueprintSection() {
             className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg text-lg font-semibold"
             asChild
           >
-            <a
-              href={process.env.NEXT_PUBLIC_CHECKOUT_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href={checkoutUrl} target="_blank" rel="noopener noreferrer">
               Get Access
             </a>
           </Button>

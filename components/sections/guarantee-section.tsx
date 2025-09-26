@@ -1,8 +1,15 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { BadgeSection } from "../ui/badge-section";
+import { SiteSettings } from "@/types/sanity";
 
-export function GuaranteeSection() {
+interface GuaranteeSectionProps {
+  siteSettings?: SiteSettings;
+}
+
+export function GuaranteeSection({ siteSettings }: GuaranteeSectionProps) {
+  const checkoutUrl =
+    siteSettings?.checkoutUrl || process.env.NEXT_PUBLIC_CHECKOUT_URL;
   return (
     <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 bg-black">
       <div className="mx-auto max-w-4xl text-center">
@@ -55,11 +62,7 @@ export function GuaranteeSection() {
             className="w-full sm:w-auto bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-10 py-3 sm:py-4 text-base sm:text-lg font-bold rounded-lg transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-orange-500/25"
             asChild
           >
-            <a
-              href={process.env.NEXT_PUBLIC_CHECKOUT_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href={checkoutUrl} target="_blank" rel="noopener noreferrer">
               <span className="hidden sm:inline">
                 Claim Your 90-Day Guarantee Now →
               </span>

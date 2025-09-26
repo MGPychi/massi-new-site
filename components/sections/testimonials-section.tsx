@@ -1,8 +1,17 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Star } from "lucide-react";
+import { SiteSettings } from "@/types/sanity";
 
-export function TestimonialsSection() {
+interface TestimonialsSectionProps {
+  siteSettings?: SiteSettings;
+}
+
+export function TestimonialsSection({
+  siteSettings,
+}: TestimonialsSectionProps) {
+  const checkoutUrl =
+    siteSettings?.checkoutUrl || process.env.NEXT_PUBLIC_CHECKOUT_URL;
   return (
     <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
       <div className="mx-auto max-w-6xl">
@@ -92,11 +101,7 @@ export function TestimonialsSection() {
             className="w-full sm:w-auto bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-lg"
             asChild
           >
-            <a
-              href={process.env.NEXT_PUBLIC_CHECKOUT_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href={checkoutUrl} target="_blank" rel="noopener noreferrer">
               Get Access →
             </a>
           </Button>

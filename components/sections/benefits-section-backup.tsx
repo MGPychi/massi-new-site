@@ -1,5 +1,13 @@
 "use client";
-export const BenefitsSection = () => {
+import { SiteSettings } from "@/types/sanity";
+
+interface BenefitsSectionProps {
+  siteSettings?: SiteSettings;
+}
+
+export const BenefitsSection = ({ siteSettings }: BenefitsSectionProps) => {
+  const checkoutUrl =
+    siteSettings?.checkoutUrl || process.env.NEXT_PUBLIC_CHECKOUT_URL;
   return (
     <div className="min-h-screen bg-black py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
@@ -325,7 +333,7 @@ export const BenefitsSection = () => {
       {/* CTA Button */}
       <div className="mt-16 text-center">
         <a
-          href={process.env.NEXT_PUBLIC_CHECKOUT_URL}
+          href={checkoutUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold py-4 px-12 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105 text-lg inline-block"

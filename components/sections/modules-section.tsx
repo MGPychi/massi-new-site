@@ -1,7 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { SiteSettings } from "@/types/sanity";
 
-export function ModulesSection() {
+interface ModulesSectionProps {
+  siteSettings?: SiteSettings;
+}
+
+export function ModulesSection({ siteSettings }: ModulesSectionProps) {
+  const checkoutUrl =
+    siteSettings?.checkoutUrl || process.env.NEXT_PUBLIC_CHECKOUT_URL;
   const modules = [
     {
       title: "Module 1: Foundation",
@@ -89,11 +96,7 @@ export function ModulesSection() {
               className="w-full sm:w-auto bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-10 py-3 sm:py-4 text-base sm:text-lg font-bold rounded-lg transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-orange-500/25"
               asChild
             >
-              <a
-                href={process.env.NEXT_PUBLIC_CHECKOUT_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href={checkoutUrl} target="_blank" rel="noopener noreferrer">
                 <span className="hidden sm:inline">
                   Get All Modules + Bonuses Now →
                 </span>

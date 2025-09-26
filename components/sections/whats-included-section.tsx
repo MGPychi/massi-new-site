@@ -1,4 +1,9 @@
 import Image from "next/image";
+import { SiteSettings } from "@/types/sanity";
+
+interface WhatsIncludedSectionProps {
+  siteSettings?: SiteSettings;
+}
 
 const bonuses = [
   {
@@ -46,7 +51,11 @@ const bonuses = [
   },
 ];
 
-export function WhatsIncludedSection() {
+export function WhatsIncludedSection({
+  siteSettings,
+}: WhatsIncludedSectionProps) {
+  const checkoutUrl =
+    siteSettings?.checkoutUrl || process.env.NEXT_PUBLIC_CHECKOUT_URL;
   return (
     <section className="px-4 py-2 bg-black">
       <div className="mx-auto max-w-7xl">
@@ -103,47 +112,38 @@ export function WhatsIncludedSection() {
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
               Total Real-World Value: $1,810
             </h3>
-
             <p className="text-xl md:text-2xl text-white mb-4">
               Normal Price: $297
             </p>
-
             <p className="text-xl md:text-2xl font-bold text-white mb-6">
               TODAY'S SPECIAL PRICE:
             </p>
-
             <div className="mb-6">
               <span className="text-5xl md:text-6xl font-bold text-orange-500">
                 Just $97
               </span>
             </div>
-
             <p className="text-xl text-white mb-6">one time payment</p>
-
             <p className="text-2xl md:text-3xl font-bold text-white mb-8">
               You Save: $1,711
             </p>
-
             <a
-              href={process.env.NEXT_PUBLIC_CHECKOUT_URL}
+              href={checkoutUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-2 rounded-lg text-lg mb-6 transition-colors inline-block"
             >
               YES! I Want Instant Access →
-            </a>
-
+            </a>{" "}
             {/* Trust badges */}
             <div className="flex justify-center items-center gap-4 mb-6">
               <div className="flex items-center gap-1">
                 <span className="text-yellow-400">⭐⭐⭐⭐⭐</span>
               </div>
             </div>
-
             <p className="text-gray-300 text-lg mb-8">
               And claim all the bonuses...
             </p>
-
             {/* Who We Are badge */}
             <div className="inline-flex items-center gap-2 bg-gray-800 px-4 py-2 rounded-full">
               <span className="text-gray-400 text-sm">👥 Who We Are</span>

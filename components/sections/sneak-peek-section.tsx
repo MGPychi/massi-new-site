@@ -1,7 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
+import { SiteSettings } from "@/types/sanity";
 
-export function SneakPeekSection() {
+interface SneakPeekSectionProps {
+  siteSettings?: SiteSettings;
+}
+
+export function SneakPeekSection({ siteSettings }: SneakPeekSectionProps) {
+  const checkoutUrl =
+    siteSettings?.checkoutUrl || process.env.NEXT_PUBLIC_CHECKOUT_URL;
   return (
     <section className="px-4 py-16 bg-black">
       <div className="mx-auto max-w-5xl">
@@ -49,11 +56,7 @@ export function SneakPeekSection() {
             className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold mb-4"
             asChild
           >
-            <a
-              href={process.env.NEXT_PUBLIC_CHECKOUT_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href={checkoutUrl} target="_blank" rel="noopener noreferrer">
               See Myself in This → I'm Ready to Join DPA →
             </a>
           </Button>

@@ -1,7 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { Phone, Mail, Cog, Shield } from "lucide-react";
+import { SiteSettings } from "@/types/sanity";
 
-export function UniqueValueSection() {
+interface UniqueValueSectionProps {
+  siteSettings?: SiteSettings;
+}
+
+export function UniqueValueSection({ siteSettings }: UniqueValueSectionProps) {
+  const checkoutUrl =
+    siteSettings?.checkoutUrl || process.env.NEXT_PUBLIC_CHECKOUT_URL;
   const uniqueFeatures = [
     {
       icon: Phone,
@@ -66,11 +73,7 @@ export function UniqueValueSection() {
             className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold"
             asChild
           >
-            <a
-              href={process.env.NEXT_PUBLIC_CHECKOUT_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href={checkoutUrl} target="_blank" rel="noopener noreferrer">
               I'm Ready to Join DPA →
             </a>
           </Button>

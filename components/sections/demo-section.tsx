@@ -1,4 +1,9 @@
 import { Button } from "@/components/ui/button";
+import { SiteSettings } from "@/types/sanity";
+
+interface ResultsSectionProps {
+  siteSettings?: SiteSettings;
+}
 
 const results = [
   {
@@ -35,7 +40,9 @@ const results = [
   },
 ];
 
-export function ResultsSection() {
+export function ResultsSection({ siteSettings }: ResultsSectionProps) {
+  const checkoutUrl =
+    siteSettings?.checkoutUrl || process.env.NEXT_PUBLIC_CHECKOUT_URL;
   return (
     <section className="px-4 py-16 bg-black relative">
       <div className="mx-auto max-w-6xl">
@@ -67,11 +74,7 @@ export function ResultsSection() {
             className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold"
             asChild
           >
-            <a
-              href={process.env.NEXT_PUBLIC_CHECKOUT_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href={checkoutUrl} target="_blank" rel="noopener noreferrer">
               Get Access →
             </a>
           </Button>

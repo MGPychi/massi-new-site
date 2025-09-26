@@ -11,13 +11,14 @@ import {
   Mail,
 } from "lucide-react";
 import { BadgeSection } from "../ui/badge-section";
-import { Pricing } from "@/types/sanity";
+import { Pricing, SiteSettings } from "@/types/sanity";
 
 interface PricingSectionProps {
   pricing?: Pricing;
+  siteSettings?: SiteSettings;
 }
 
-export function PricingSection({ pricing }: PricingSectionProps) {
+export function PricingSection({ pricing, siteSettings }: PricingSectionProps) {
   const features = [
     {
       icon: Check,
@@ -80,7 +81,11 @@ export function PricingSection({ pricing }: PricingSectionProps) {
   const displayFeatures =
     dynamicFeatures && dynamicFeatures.length > 0 ? dynamicFeatures : features;
   const ctaText = pricing?.ctaText || "Get Instant Access Now →";
-  const ctaUrl = pricing?.ctaUrl || process.env.NEXT_PUBLIC_CHECKOUT_URL;
+  // Use the same pattern as hero section: pricing CTA URL > siteSettings checkout URL > env var
+  const ctaUrl =
+    pricing?.ctaUrl ||
+    siteSettings?.checkoutUrl ||
+    process.env.NEXT_PUBLIC_CHECKOUT_URL;
   const badge = pricing?.badge || "Badge";
 
   return (

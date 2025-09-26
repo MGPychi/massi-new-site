@@ -47,19 +47,25 @@ export default async function DigitalProductAcademy() {
     <div className="min-h-screen bg-gradient-to-b from-black via-slate-900 to-black">
       <HeroSection siteSettings={siteSettings ?? undefined} />
       <SocialProofSection testimonials={testimonials ?? undefined} />
-      <BlueprintSection />
+      <BlueprintSection siteSettings={siteSettings ?? undefined} />
       <TargetAudienceSection />
       <CourseContentComponent />
-      <WhatsIncludedSection />
+      <WhatsIncludedSection siteSettings={siteSettings ?? undefined} />
       <WhoShouldEnrollSection />
-      <ResultsSection />
+      <ResultsSection siteSettings={siteSettings ?? undefined} />
       {/* <SneakPeekSection /> */}
-      <NotForEveryoneSection />
-      <PricingSection pricing={pricing ?? undefined} />
+      <NotForEveryoneSection siteSettings={siteSettings ?? undefined} />
+      <PricingSection
+        pricing={pricing ?? undefined}
+        siteSettings={siteSettings ?? undefined}
+      />
       <NewTestimonialsSection testimonials={testimonials ?? undefined} />
-      <UniqueValueSection />
-      <GuaranteeSection />
-      <FAQSection faqs={faqs ?? undefined} />
+      <UniqueValueSection siteSettings={siteSettings ?? undefined} />
+      <GuaranteeSection siteSettings={siteSettings ?? undefined} />
+      <FAQSection
+        faqs={faqs ?? undefined}
+        siteSettings={siteSettings ?? undefined}
+      />
       <FooterSection />
     </div>
   );

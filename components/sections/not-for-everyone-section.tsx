@@ -1,5 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { AlertTriangle } from "lucide-react";
+import { SiteSettings } from "@/types/sanity";
+
+interface NotForEveryoneSectionProps {
+  siteSettings?: SiteSettings;
+}
 
 const notForTypes = [
   {
@@ -24,7 +29,11 @@ const notForTypes = [
   },
 ];
 
-export function NotForEveryoneSection() {
+export function NotForEveryoneSection({
+  siteSettings,
+}: NotForEveryoneSectionProps) {
+  const checkoutUrl =
+    siteSettings?.checkoutUrl || process.env.NEXT_PUBLIC_CHECKOUT_URL;
   return (
     <section className="px-4 py-16 bg-black">
       <div className="mx-auto max-w-6xl">
@@ -70,11 +79,7 @@ export function NotForEveryoneSection() {
             className="bg-orange-500 max-w-screen hover:bg-orange-600 text-white px:4 md:px-8 py-4 rounded-lg font-semibold cursor-pointer text-center text-xs md:text-lg"
             asChild
           >
-            <a
-              href={process.env.NEXT_PUBLIC_CHECKOUT_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href={checkoutUrl} target="_blank" rel="noopener noreferrer">
               I See Myself in This — I'm Ready to Join DPA →
             </a>
           </Button>
