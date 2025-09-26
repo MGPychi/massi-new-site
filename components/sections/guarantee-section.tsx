@@ -74,9 +74,12 @@ export function GuaranteeSection({ siteSettings }: GuaranteeSectionProps) {
         {/* Trust badges */}
         <div className="flex justify-center items-center gap-4 mt-4 sm:mt-6">
           <div className="flex items-center gap-1">
-            <span className="text-yellow-400 text-sm sm:text-base">
-              ⭐⭐⭐⭐⭐
-            </span>
+            <Image
+              src="/stars.avif"
+              alt="5 star rating"
+              width={120}
+              height={24}
+            />
           </div>
         </div>
       </div>

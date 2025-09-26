@@ -120,6 +120,7 @@ export async function getPricing(): Promise<Pricing[]> {
     `*[_type == "pricing"] | order(popular desc, _createdAt desc) {
       _id,
       price,
+      pricingTitle,
       description,
       features,
       ctaText,
@@ -137,6 +138,7 @@ export async function getMainPricing(): Promise<Pricing | null> {
     `*[_type == "pricing" && popular == true][0] {
       _id,
       price,
+      pricingTitle,
       description,
       features,
       ctaText,
@@ -157,6 +159,7 @@ export async function getMainPricing(): Promise<Pricing | null> {
     `*[_type == "pricing"][0] {
       _id,
       price,
+      pricingTitle,
       description,
       features,
       ctaText,

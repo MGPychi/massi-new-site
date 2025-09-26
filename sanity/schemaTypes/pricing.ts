@@ -10,13 +10,19 @@ export default defineType({
       title: "Price",
       type: "string",
       validation: (Rule: any) => Rule.required(),
-      description: 'e.g., "$97" or "Free"',
+      description: 'e.g., "$33" or "Free"',
+    },
+    {
+      name: "pricingTitle",
+      title: "Pricing Title",
+      type: "string",
+      description: 'Text to display below the price, e.g., "lifetime access"',
     },
     {
       name: "description",
       title: "Price Description",
       type: "string",
-      description: 'e.g., "lifetime access" or "one-time payment"',
+      description: 'e.g., "Get The Full Access Before The Price Goes Up"',
     },
     {
       name: "features",
@@ -53,13 +59,15 @@ export default defineType({
   preview: {
     select: {
       price: "price",
+      pricingTitle: "pricingTitle",
       description: "description",
     },
     prepare(selection: any) {
-      const { price, description } = selection;
+      const { price, pricingTitle, description } = selection;
+      const title = pricingTitle ? `${price} ${pricingTitle}` : price;
       return {
-        title: `${price} ${description || ""}`,
-        subtitle: "Pricing Plan",
+        title,
+        subtitle: description || "Pricing Plan",
       };
     },
   },

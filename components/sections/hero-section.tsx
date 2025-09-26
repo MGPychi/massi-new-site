@@ -9,6 +9,7 @@ import {
 } from "@/lib/constants";
 import { BadgeSection } from "../ui/badge-section";
 import { SiteSettings } from "@/types/sanity";
+import Image from "next/image";
 
 interface HeroSectionProps {
   siteSettings?: SiteSettings;
@@ -173,7 +174,7 @@ function CTAButtons({ siteSettings }: { siteSettings?: SiteSettings }) {
     siteSettings?.checkoutUrl || process.env.NEXT_PUBLIC_CHECKOUT_URL;
 
   return (
-    <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4">
+    <div className="flex flex-col  gap-4 sm:gap-2 justify-center items-center px-4">
       <Button
         size="lg"
         aria-label="Start making money with digital products now"
@@ -185,6 +186,7 @@ function CTAButtons({ siteSettings }: { siteSettings?: SiteSettings }) {
           <span className="sm:hidden">{ctaPrimaryMobile}</span>
         </a>
       </Button>
+      <Image src="/stars.avif" alt="5 star rating" width={120} height={24} />
     </div>
   );
 }

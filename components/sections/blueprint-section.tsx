@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { SiteSettings } from "@/types/sanity";
+import Image from "next/image";
 
 interface BlueprintSectionProps {
   siteSettings?: SiteSettings;
@@ -66,7 +67,7 @@ export function BlueprintSection({ siteSettings }: BlueprintSectionProps) {
           ))}
         </div>
 
-        <div className="text-center space-y-4">
+        <div className="text-center flex flex-col items-center space-y-4">
           <h3 className="text-white text-4xl font-bold">
             ...and so much more!
           </h3>
@@ -79,6 +80,12 @@ export function BlueprintSection({ siteSettings }: BlueprintSectionProps) {
               Get Access
             </a>
           </Button>
+          <Image
+            src="/stars.avif"
+            alt="5 star rating"
+            width={120}
+            height={24}
+          />
         </div>
       </div>
     </section>

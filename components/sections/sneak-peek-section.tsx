@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
 import { SiteSettings } from "@/types/sanity";
+import Image from "next/image";
 
 interface SneakPeekSectionProps {
   siteSettings?: SiteSettings;
@@ -64,7 +65,12 @@ export function SneakPeekSection({ siteSettings }: SneakPeekSectionProps) {
           {/* Trust badges */}
           <div className="flex justify-center items-center gap-4 mt-6">
             <div className="flex items-center gap-1">
-              <span className="text-yellow-400">⭐⭐⭐⭐⭐</span>
+              <Image
+                src="/stars.avif"
+                alt="5 star rating"
+                width={120}
+                height={24}
+              />
             </div>
           </div>
         </div>

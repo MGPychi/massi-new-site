@@ -45,6 +45,7 @@ export interface FAQ {
 export interface Pricing {
   _id: string;
   price: string;
+  pricingTitle?: string;
   description?: string;
   features: string[];
   ctaText: string;

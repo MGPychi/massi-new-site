@@ -50,7 +50,10 @@ export default async function DigitalProductAcademy() {
       <BlueprintSection siteSettings={siteSettings ?? undefined} />
       <TargetAudienceSection />
       <CourseContentComponent />
-      <WhatsIncludedSection siteSettings={siteSettings ?? undefined} />
+      <WhatsIncludedSection
+        siteSettings={siteSettings ?? undefined}
+        pricing={pricing ?? undefined}
+      />
       <WhoShouldEnrollSection />
       <ResultsSection siteSettings={siteSettings ?? undefined} />
       {/* <SneakPeekSection /> */}

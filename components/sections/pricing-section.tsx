@@ -71,7 +71,8 @@ export function PricingSection({ pricing, siteSettings }: PricingSectionProps) {
   ];
 
   // Use dynamic pricing if available, otherwise use static content
-  const price = pricing?.price || "$97";
+  const price = pricing?.price || "$33";
+  const pricingTitle = pricing?.pricingTitle || "lifetime access";
   const description =
     pricing?.description || "Get The Full Access Before The Price Goes Up";
   const dynamicFeatures = pricing?.features?.map((text) => ({
@@ -100,7 +101,7 @@ export function PricingSection({ pricing, siteSettings }: PricingSectionProps) {
           <div className="absolute top-0 left-0 w-32 h-32 bg-blue-800 rounded-full blur-3xl opacity-50"></div>
           <div className="text-center mb-6 sm:mb-8">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">
-              {price}
+              {price} {pricingTitle}
             </h2>
           </div>
 

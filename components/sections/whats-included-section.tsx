@@ -1,8 +1,10 @@
 import Image from "next/image";
-import { SiteSettings } from "@/types/sanity";
+import { SiteSettings, Pricing } from "@/types/sanity";
+import { BadgeSection } from "../ui/badge-section";
 
 interface WhatsIncludedSectionProps {
   siteSettings?: SiteSettings;
+  pricing?: Pricing;
 }
 
 const bonuses = [
@@ -53,9 +55,13 @@ const bonuses = [
 
 export function WhatsIncludedSection({
   siteSettings,
+  pricing,
 }: WhatsIncludedSectionProps) {
   const checkoutUrl =
     siteSettings?.checkoutUrl || process.env.NEXT_PUBLIC_CHECKOUT_URL;
+
+  // Use dynamic pricing if available, otherwise use static fallback
+  const price = pricing?.price || "$33";
   return (
     <section className="px-4 py-2 bg-black">
       <div className="mx-auto max-w-7xl">
@@ -120,10 +126,9 @@ export function WhatsIncludedSection({
             </p>
             <div className="mb-6">
               <span className="text-5xl md:text-6xl font-bold text-orange-500">
-                Just $97
+                Just {price}
               </span>
             </div>
-            <p className="text-xl text-white mb-6">one time payment</p>
             <p className="text-2xl md:text-3xl font-bold text-white mb-8">
               You Save: $1,711
             </p>
@@ -138,16 +143,19 @@ export function WhatsIncludedSection({
             {/* Trust badges */}
             <div className="flex justify-center items-center gap-4 mb-6">
               <div className="flex items-center gap-1">
-                <span className="text-yellow-400">⭐⭐⭐⭐⭐</span>
+                <Image
+                  src="/stars.avif"
+                  alt="5 star rating"
+                  width={120}
+                  height={24}
+                />
               </div>
             </div>
             <p className="text-gray-300 text-lg mb-8">
               And claim all the bonuses...
             </p>
             {/* Who We Are badge */}
-            <div className="inline-flex items-center gap-2 bg-gray-800 px-4 py-2 rounded-full">
-              <span className="text-gray-400 text-sm">👥 Who We Are</span>
-            </div>
+            <BadgeSection>Who We Are</BadgeSection>
           </div>
         </div>
       </div>
